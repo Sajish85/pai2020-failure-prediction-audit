@@ -1,0 +1,2455 @@
+{
+  "script": "r1/scripts/recheck.py",
+  "frame": "tasks_frame.parquet",
+  "paper1_definitions": "machine class = cap_gpu; quarter-GPU cell = plan_gpu 25 on cap_gpu 8 (from paper1-ref; see script docstring)",
+  "units": "plan_gpu is a percentage of one GPU (trace README l.182)",
+  "top_user": "the user with the most S3 tasks (identifier not written)",
+  "top_user_task_share_pct_S3": 28.7052,
+  "top_user_failure_share_pct_S3": 49.2122,
+  "top_user_task_share_pct_kanvas": 31.0142,
+  "top_user_failure_share_pct_kanvas": 54.6132,
+  "kanvas_comparable_definition": "KANVAS kanvas/data.py filter on all labeled tasks, no random sample, no clipping; plan_gpu == 0 tasks are kept, as in KANVAS",
+  "full_S3": {
+    "n_tasks": 985358,
+    "n_failed": 252667,
+    "n_users": 1314,
+    "failure_rate_pct": 25.6422,
+    "machine_class_cap_gpu": [
+      {
+        "cap_gpu": "8",
+        "tasks": 702900,
+        "failed": 216758,
+        "users": 1123,
+        "failure_rate_pct": 30.8377,
+        "share_of_all_failures_pct": 85.788,
+        "share_of_tasks_pct": 71.3345
+      },
+      {
+        "cap_gpu": "2",
+        "tasks": 282458,
+        "failed": 35909,
+        "users": 1064,
+        "failure_rate_pct": 12.713,
+        "share_of_all_failures_pct": 14.212,
+        "share_of_tasks_pct": 28.6655
+      }
+    ],
+    "quarter_gpu_cell": {
+      "definition": "plan_gpu == 25 and cap_gpu == 8 (Paper 1); contrast plan_gpu == 25 and cap_gpu == 2",
+      "plan25_cap8": {
+        "tasks": 202520,
+        "failed": 95916,
+        "users": 415,
+        "failure_rate_pct": 47.3612
+      },
+      "plan25_cap2": {
+        "tasks": 58916,
+        "failed": 3410,
+        "users": 297,
+        "failure_rate_pct": 5.7879
+      },
+      "rate_ratio_cap8_over_cap2": 8.1828,
+      "cap8_all_other_plan_gpu": {
+        "tasks": 500380,
+        "failed": 120842,
+        "users": 1100,
+        "failure_rate_pct": 24.15
+      },
+      "plan25_cap8_share_of_all_failures_pct": 37.9614
+    },
+    "plan_gpu_x_cap_gpu_paper1_values": [
+      {
+        "plan_gpu": 10,
+        "cap_gpu": 2,
+        "tasks": 7367,
+        "failed": 495,
+        "users": 41,
+        "failure_rate_pct": 6.7192
+      },
+      {
+        "plan_gpu": 25,
+        "cap_gpu": 2,
+        "tasks": 58916,
+        "failed": 3410,
+        "users": 297,
+        "failure_rate_pct": 5.7879
+      },
+      {
+        "plan_gpu": 50,
+        "cap_gpu": 2,
+        "tasks": 64800,
+        "failed": 9739,
+        "users": 253,
+        "failure_rate_pct": 15.0293
+      },
+      {
+        "plan_gpu": 100,
+        "cap_gpu": 2,
+        "tasks": 140466,
+        "failed": 20297,
+        "users": 946,
+        "failure_rate_pct": 14.4498
+      },
+      {
+        "plan_gpu": 10,
+        "cap_gpu": 8,
+        "tasks": 107630,
+        "failed": 39229,
+        "users": 66,
+        "failure_rate_pct": 36.448
+      },
+      {
+        "plan_gpu": 25,
+        "cap_gpu": 8,
+        "tasks": 202520,
+        "failed": 95916,
+        "users": 415,
+        "failure_rate_pct": 47.3612
+      },
+      {
+        "plan_gpu": 50,
+        "cap_gpu": 8,
+        "tasks": 66907,
+        "failed": 7133,
+        "users": 331,
+        "failure_rate_pct": 10.6611
+      },
+      {
+        "plan_gpu": 100,
+        "cap_gpu": 8,
+        "tasks": 276084,
+        "failed": 62575,
+        "users": 969,
+        "failure_rate_pct": 22.6652
+      }
+    ],
+    "plan_gpu_within_cap_gpu_n_ge_100": {
+      "2": [
+        {
+          "plan_gpu": "1",
+          "tasks": 252,
+          "failed": 85,
+          "users": 14,
+          "failure_rate_pct": 33.7302
+        },
+        {
+          "plan_gpu": "5",
+          "tasks": 2714,
+          "failed": 318,
+          "users": 37,
+          "failure_rate_pct": 11.717
+        },
+        {
+          "plan_gpu": "10",
+          "tasks": 7367,
+          "failed": 495,
+          "users": 41,
+          "failure_rate_pct": 6.7192
+        },
+        {
+          "plan_gpu": "15",
+          "tasks": 204,
+          "failed": 18,
+          "users": 15,
+          "failure_rate_pct": 8.8235
+        },
+        {
+          "plan_gpu": "20",
+          "tasks": 1627,
+          "failed": 246,
+          "users": 49,
+          "failure_rate_pct": 15.1199
+        },
+        {
+          "plan_gpu": "25",
+          "tasks": 58916,
+          "failed": 3410,
+          "users": 297,
+          "failure_rate_pct": 5.7879
+        },
+        {
+          "plan_gpu": "30",
+          "tasks": 107,
+          "failed": 31,
+          "users": 20,
+          "failure_rate_pct": 28.972
+        },
+        {
+          "plan_gpu": "50",
+          "tasks": 64800,
+          "failed": 9739,
+          "users": 253,
+          "failure_rate_pct": 15.0293
+        },
+        {
+          "plan_gpu": "75",
+          "tasks": 100,
+          "failed": 37,
+          "users": 7,
+          "failure_rate_pct": 37.0
+        },
+        {
+          "plan_gpu": "100",
+          "tasks": 140466,
+          "failed": 20297,
+          "users": 946,
+          "failure_rate_pct": 14.4498
+        },
+        {
+          "plan_gpu": "200",
+          "tasks": 5601,
+          "failed": 1101,
+          "users": 168,
+          "failure_rate_pct": 19.6572
+        }
+      ],
+      "8": [
+        {
+          "plan_gpu": "1",
+          "tasks": 652,
+          "failed": 28,
+          "users": 10,
+          "failure_rate_pct": 4.2945
+        },
+        {
+          "plan_gpu": "5",
+          "tasks": 13539,
+          "failed": 2369,
+          "users": 43,
+          "failure_rate_pct": 17.4976
+        },
+        {
+          "plan_gpu": "10",
+          "tasks": 107630,
+          "failed": 39229,
+          "users": 66,
+          "failure_rate_pct": 36.448
+        },
+        {
+          "plan_gpu": "15",
+          "tasks": 2856,
+          "failed": 267,
+          "users": 21,
+          "failure_rate_pct": 9.3487
+        },
+        {
+          "plan_gpu": "20",
+          "tasks": 11214,
+          "failed": 1610,
+          "users": 93,
+          "failure_rate_pct": 14.3571
+        },
+        {
+          "plan_gpu": "25",
+          "tasks": 202520,
+          "failed": 95916,
+          "users": 415,
+          "failure_rate_pct": 47.3612
+        },
+        {
+          "plan_gpu": "30",
+          "tasks": 574,
+          "failed": 190,
+          "users": 32,
+          "failure_rate_pct": 33.101
+        },
+        {
+          "plan_gpu": "40",
+          "tasks": 217,
+          "failed": 89,
+          "users": 19,
+          "failure_rate_pct": 41.0138
+        },
+        {
+          "plan_gpu": "50",
+          "tasks": 66907,
+          "failed": 7133,
+          "users": 331,
+          "failure_rate_pct": 10.6611
+        },
+        {
+          "plan_gpu": "60",
+          "tasks": 322,
+          "failed": 47,
+          "users": 15,
+          "failure_rate_pct": 14.5963
+        },
+        {
+          "plan_gpu": "80",
+          "tasks": 152,
+          "failed": 64,
+          "users": 8,
+          "failure_rate_pct": 42.1053
+        },
+        {
+          "plan_gpu": "100",
+          "tasks": 276084,
+          "failed": 62575,
+          "users": 969,
+          "failure_rate_pct": 22.6652
+        },
+        {
+          "plan_gpu": "200",
+          "tasks": 8783,
+          "failed": 2438,
+          "users": 187,
+          "failure_rate_pct": 27.7582
+        },
+        {
+          "plan_gpu": "300",
+          "tasks": 1067,
+          "failed": 172,
+          "users": 34,
+          "failure_rate_pct": 16.12
+        },
+        {
+          "plan_gpu": "400",
+          "tasks": 2557,
+          "failed": 1131,
+          "users": 118,
+          "failure_rate_pct": 44.2315
+        },
+        {
+          "plan_gpu": "500",
+          "tasks": 3961,
+          "failed": 925,
+          "users": 20,
+          "failure_rate_pct": 23.3527
+        },
+        {
+          "plan_gpu": "800",
+          "tasks": 3525,
+          "failed": 2378,
+          "users": 84,
+          "failure_rate_pct": 67.461
+        }
+      ]
+    },
+    "secondary_task_gpu_type": [
+      {
+        "gpu_type": "MISC",
+        "tasks": 662984,
+        "failed": 202583,
+        "users": 985,
+        "failure_rate_pct": 30.5562,
+        "share_of_all_failures_pct": 80.1779,
+        "share_of_tasks_pct": 67.2836
+      },
+      {
+        "gpu_type": "T4",
+        "tasks": 217704,
+        "failed": 21474,
+        "users": 343,
+        "failure_rate_pct": 9.8639,
+        "share_of_all_failures_pct": 8.4989,
+        "share_of_tasks_pct": 22.0939
+      },
+      {
+        "gpu_type": "P100",
+        "tasks": 64754,
+        "failed": 14435,
+        "users": 782,
+        "failure_rate_pct": 22.2921,
+        "share_of_all_failures_pct": 5.7131,
+        "share_of_tasks_pct": 6.5716
+      },
+      {
+        "gpu_type": "V100",
+        "tasks": 24703,
+        "failed": 8007,
+        "users": 731,
+        "failure_rate_pct": 32.4131,
+        "share_of_all_failures_pct": 3.169,
+        "share_of_tasks_pct": 2.507
+      },
+      {
+        "gpu_type": "V100M32",
+        "tasks": 15212,
+        "failed": 6167,
+        "users": 571,
+        "failure_rate_pct": 40.5404,
+        "share_of_all_failures_pct": 2.4408,
+        "share_of_tasks_pct": 1.5438
+      },
+      {
+        "gpu_type": "<NULL>",
+        "tasks": 1,
+        "failed": 1,
+        "users": 1,
+        "failure_rate_pct": 100.0,
+        "share_of_all_failures_pct": 0.0004,
+        "share_of_tasks_pct": 0.0001
+      }
+    ],
+    "secondary_gpu_type_x_cap_gpu": [
+      {
+        "gpu_type": "MISC",
+        "cap_gpu": "8",
+        "tasks": 662984,
+        "failed": 202583,
+        "users": 985,
+        "failure_rate_pct": 30.5562,
+        "share_of_all_failures_pct": 80.1779,
+        "share_of_tasks_pct": 67.2836
+      },
+      {
+        "gpu_type": "T4",
+        "cap_gpu": "2",
+        "tasks": 217704,
+        "failed": 21474,
+        "users": 343,
+        "failure_rate_pct": 9.8639,
+        "share_of_all_failures_pct": 8.4989,
+        "share_of_tasks_pct": 22.0939
+      },
+      {
+        "gpu_type": "P100",
+        "cap_gpu": "2",
+        "tasks": 64754,
+        "failed": 14435,
+        "users": 782,
+        "failure_rate_pct": 22.2921,
+        "share_of_all_failures_pct": 5.7131,
+        "share_of_tasks_pct": 6.5716
+      },
+      {
+        "gpu_type": "V100",
+        "cap_gpu": "8",
+        "tasks": 24703,
+        "failed": 8007,
+        "users": 731,
+        "failure_rate_pct": 32.4131,
+        "share_of_all_failures_pct": 3.169,
+        "share_of_tasks_pct": 2.507
+      },
+      {
+        "gpu_type": "V100M32",
+        "cap_gpu": "8",
+        "tasks": 15212,
+        "failed": 6167,
+        "users": 571,
+        "failure_rate_pct": 40.5404,
+        "share_of_all_failures_pct": 2.4408,
+        "share_of_tasks_pct": 1.5438
+      },
+      {
+        "gpu_type": "<NULL>",
+        "cap_gpu": "8",
+        "tasks": 1,
+        "failed": 1,
+        "users": 1,
+        "failure_rate_pct": 100.0,
+        "share_of_all_failures_pct": 0.0004,
+        "share_of_tasks_pct": 0.0001
+      }
+    ],
+    "secondary_plan_gpu_bucket": [
+      {
+        "plan_gpu_bucket": "=100 (one GPU)",
+        "tasks": 416550,
+        "failed": 82872,
+        "users": 1173,
+        "failure_rate_pct": 19.8949,
+        "share_of_all_failures_pct": 32.7989,
+        "share_of_tasks_pct": 42.274
+      },
+      {
+        "plan_gpu_bucket": "=25 (quarter GPU)",
+        "tasks": 261436,
+        "failed": 99326,
+        "users": 508,
+        "failure_rate_pct": 37.9925,
+        "share_of_all_failures_pct": 39.311,
+        "share_of_tasks_pct": 26.5321
+      },
+      {
+        "plan_gpu_bucket": "(0,25)",
+        "tasks": 148097,
+        "failed": 44696,
+        "users": 219,
+        "failure_rate_pct": 30.1802,
+        "share_of_all_failures_pct": 17.6897,
+        "share_of_tasks_pct": 15.0298
+      },
+      {
+        "plan_gpu_bucket": "=50",
+        "tasks": 131707,
+        "failed": 16872,
+        "users": 402,
+        "failure_rate_pct": 12.8103,
+        "share_of_all_failures_pct": 6.6776,
+        "share_of_tasks_pct": 13.3664
+      },
+      {
+        "plan_gpu_bucket": ">=200",
+        "tasks": 25722,
+        "failed": 8239,
+        "users": 310,
+        "failure_rate_pct": 32.0309,
+        "share_of_all_failures_pct": 3.2608,
+        "share_of_tasks_pct": 2.6104
+      },
+      {
+        "plan_gpu_bucket": "(25,50)",
+        "tasks": 951,
+        "failed": 331,
+        "users": 48,
+        "failure_rate_pct": 34.8055,
+        "share_of_all_failures_pct": 0.131,
+        "share_of_tasks_pct": 0.0965
+      },
+      {
+        "plan_gpu_bucket": "(50,100)",
+        "tasks": 863,
+        "failed": 330,
+        "users": 31,
+        "failure_rate_pct": 38.2387,
+        "share_of_all_failures_pct": 0.1306,
+        "share_of_tasks_pct": 0.0876
+      },
+      {
+        "plan_gpu_bucket": "(100,200)",
+        "tasks": 32,
+        "failed": 1,
+        "users": 2,
+        "failure_rate_pct": 3.125,
+        "share_of_all_failures_pct": 0.0004,
+        "share_of_tasks_pct": 0.0032
+      }
+    ]
+  },
+  "S3_without_top_user": {
+    "n_tasks": 702509,
+    "n_failed": 128324,
+    "n_users": 1313,
+    "failure_rate_pct": 18.2665,
+    "machine_class_cap_gpu": [
+      {
+        "cap_gpu": "8",
+        "tasks": 430268,
+        "failed": 95354,
+        "users": 1122,
+        "failure_rate_pct": 22.1615,
+        "share_of_all_failures_pct": 74.3072,
+        "share_of_tasks_pct": 61.2473
+      },
+      {
+        "cap_gpu": "2",
+        "tasks": 272241,
+        "failed": 32970,
+        "users": 1063,
+        "failure_rate_pct": 12.1106,
+        "share_of_all_failures_pct": 25.6928,
+        "share_of_tasks_pct": 38.7527
+      }
+    ],
+    "quarter_gpu_cell": {
+      "definition": "plan_gpu == 25 and cap_gpu == 8 (Paper 1); contrast plan_gpu == 25 and cap_gpu == 2",
+      "plan25_cap8": {
+        "tasks": 104084,
+        "failed": 15900,
+        "users": 414,
+        "failure_rate_pct": 15.2761
+      },
+      "plan25_cap2": {
+        "tasks": 58763,
+        "failed": 3396,
+        "users": 296,
+        "failure_rate_pct": 5.7791
+      },
+      "rate_ratio_cap8_over_cap2": 2.6433,
+      "cap8_all_other_plan_gpu": {
+        "tasks": 326184,
+        "failed": 79454,
+        "users": 1099,
+        "failure_rate_pct": 24.3586
+      },
+      "plan25_cap8_share_of_all_failures_pct": 12.3905
+    },
+    "plan_gpu_x_cap_gpu_paper1_values": [
+      {
+        "plan_gpu": 10,
+        "cap_gpu": 2,
+        "tasks": 5001,
+        "failed": 370,
+        "users": 40,
+        "failure_rate_pct": 7.3985
+      },
+      {
+        "plan_gpu": 25,
+        "cap_gpu": 2,
+        "tasks": 58763,
+        "failed": 3396,
+        "users": 296,
+        "failure_rate_pct": 5.7791
+      },
+      {
+        "plan_gpu": 50,
+        "cap_gpu": 2,
+        "tasks": 64270,
+        "failed": 9723,
+        "users": 252,
+        "failure_rate_pct": 15.1284
+      },
+      {
+        "plan_gpu": 100,
+        "cap_gpu": 2,
+        "tasks": 133541,
+        "failed": 17516,
+        "users": 945,
+        "failure_rate_pct": 13.1166
+      },
+      {
+        "plan_gpu": 10,
+        "cap_gpu": 8,
+        "tasks": 22183,
+        "failed": 18121,
+        "users": 65,
+        "failure_rate_pct": 81.6887
+      },
+      {
+        "plan_gpu": 25,
+        "cap_gpu": 8,
+        "tasks": 104084,
+        "failed": 15900,
+        "users": 414,
+        "failure_rate_pct": 15.2761
+      },
+      {
+        "plan_gpu": 50,
+        "cap_gpu": 8,
+        "tasks": 41803,
+        "failed": 6632,
+        "users": 330,
+        "failure_rate_pct": 15.8649
+      },
+      {
+        "plan_gpu": 100,
+        "cap_gpu": 8,
+        "tasks": 231961,
+        "failed": 44872,
+        "users": 968,
+        "failure_rate_pct": 19.3446
+      }
+    ],
+    "plan_gpu_within_cap_gpu_n_ge_100": {
+      "2": [
+        {
+          "plan_gpu": "1",
+          "tasks": 252,
+          "failed": 85,
+          "users": 14,
+          "failure_rate_pct": 33.7302
+        },
+        {
+          "plan_gpu": "5",
+          "tasks": 2654,
+          "failed": 318,
+          "users": 36,
+          "failure_rate_pct": 11.9819
+        },
+        {
+          "plan_gpu": "10",
+          "tasks": 5001,
+          "failed": 370,
+          "users": 40,
+          "failure_rate_pct": 7.3985
+        },
+        {
+          "plan_gpu": "15",
+          "tasks": 115,
+          "failed": 15,
+          "users": 14,
+          "failure_rate_pct": 13.0435
+        },
+        {
+          "plan_gpu": "20",
+          "tasks": 1553,
+          "failed": 246,
+          "users": 48,
+          "failure_rate_pct": 15.8403
+        },
+        {
+          "plan_gpu": "25",
+          "tasks": 58763,
+          "failed": 3396,
+          "users": 296,
+          "failure_rate_pct": 5.7791
+        },
+        {
+          "plan_gpu": "50",
+          "tasks": 64270,
+          "failed": 9723,
+          "users": 252,
+          "failure_rate_pct": 15.1284
+        },
+        {
+          "plan_gpu": "75",
+          "tasks": 100,
+          "failed": 37,
+          "users": 7,
+          "failure_rate_pct": 37.0
+        },
+        {
+          "plan_gpu": "100",
+          "tasks": 133541,
+          "failed": 17516,
+          "users": 945,
+          "failure_rate_pct": 13.1166
+        },
+        {
+          "plan_gpu": "200",
+          "tasks": 5601,
+          "failed": 1101,
+          "users": 168,
+          "failure_rate_pct": 19.6572
+        }
+      ],
+      "8": [
+        {
+          "plan_gpu": "1",
+          "tasks": 652,
+          "failed": 28,
+          "users": 10,
+          "failure_rate_pct": 4.2945
+        },
+        {
+          "plan_gpu": "5",
+          "tasks": 908,
+          "failed": 434,
+          "users": 42,
+          "failure_rate_pct": 47.7974
+        },
+        {
+          "plan_gpu": "10",
+          "tasks": 22183,
+          "failed": 18121,
+          "users": 65,
+          "failure_rate_pct": 81.6887
+        },
+        {
+          "plan_gpu": "15",
+          "tasks": 772,
+          "failed": 238,
+          "users": 20,
+          "failure_rate_pct": 30.829
+        },
+        {
+          "plan_gpu": "20",
+          "tasks": 6588,
+          "failed": 1499,
+          "users": 92,
+          "failure_rate_pct": 22.7535
+        },
+        {
+          "plan_gpu": "25",
+          "tasks": 104084,
+          "failed": 15900,
+          "users": 414,
+          "failure_rate_pct": 15.2761
+        },
+        {
+          "plan_gpu": "30",
+          "tasks": 394,
+          "failed": 190,
+          "users": 31,
+          "failure_rate_pct": 48.2234
+        },
+        {
+          "plan_gpu": "40",
+          "tasks": 217,
+          "failed": 89,
+          "users": 19,
+          "failure_rate_pct": 41.0138
+        },
+        {
+          "plan_gpu": "50",
+          "tasks": 41803,
+          "failed": 6632,
+          "users": 330,
+          "failure_rate_pct": 15.8649
+        },
+        {
+          "plan_gpu": "60",
+          "tasks": 322,
+          "failed": 47,
+          "users": 15,
+          "failure_rate_pct": 14.5963
+        },
+        {
+          "plan_gpu": "80",
+          "tasks": 152,
+          "failed": 64,
+          "users": 8,
+          "failure_rate_pct": 42.1053
+        },
+        {
+          "plan_gpu": "100",
+          "tasks": 231961,
+          "failed": 44872,
+          "users": 968,
+          "failure_rate_pct": 19.3446
+        },
+        {
+          "plan_gpu": "200",
+          "tasks": 8782,
+          "failed": 2437,
+          "users": 186,
+          "failure_rate_pct": 27.7499
+        },
+        {
+          "plan_gpu": "300",
+          "tasks": 1067,
+          "failed": 172,
+          "users": 34,
+          "failure_rate_pct": 16.12
+        },
+        {
+          "plan_gpu": "400",
+          "tasks": 2557,
+          "failed": 1131,
+          "users": 118,
+          "failure_rate_pct": 44.2315
+        },
+        {
+          "plan_gpu": "500",
+          "tasks": 3961,
+          "failed": 925,
+          "users": 20,
+          "failure_rate_pct": 23.3527
+        },
+        {
+          "plan_gpu": "800",
+          "tasks": 3525,
+          "failed": 2378,
+          "users": 84,
+          "failure_rate_pct": 67.461
+        }
+      ]
+    },
+    "secondary_task_gpu_type": [
+      {
+        "gpu_type": "MISC",
+        "tasks": 394568,
+        "failed": 83163,
+        "users": 984,
+        "failure_rate_pct": 21.077,
+        "share_of_all_failures_pct": 64.8071,
+        "share_of_tasks_pct": 56.1655
+      },
+      {
+        "gpu_type": "T4",
+        "tasks": 217704,
+        "failed": 21474,
+        "users": 343,
+        "failure_rate_pct": 9.8639,
+        "share_of_all_failures_pct": 16.7342,
+        "share_of_tasks_pct": 30.9895
+      },
+      {
+        "gpu_type": "P100",
+        "tasks": 54537,
+        "failed": 11496,
+        "users": 781,
+        "failure_rate_pct": 21.0793,
+        "share_of_all_failures_pct": 8.9586,
+        "share_of_tasks_pct": 7.7632
+      },
+      {
+        "gpu_type": "V100",
+        "tasks": 22458,
+        "failed": 6967,
+        "users": 730,
+        "failure_rate_pct": 31.0224,
+        "share_of_all_failures_pct": 5.4292,
+        "share_of_tasks_pct": 3.1968
+      },
+      {
+        "gpu_type": "V100M32",
+        "tasks": 13241,
+        "failed": 5223,
+        "users": 570,
+        "failure_rate_pct": 39.4457,
+        "share_of_all_failures_pct": 4.0702,
+        "share_of_tasks_pct": 1.8848
+      },
+      {
+        "gpu_type": "<NULL>",
+        "tasks": 1,
+        "failed": 1,
+        "users": 1,
+        "failure_rate_pct": 100.0,
+        "share_of_all_failures_pct": 0.0008,
+        "share_of_tasks_pct": 0.0001
+      }
+    ],
+    "secondary_gpu_type_x_cap_gpu": [
+      {
+        "gpu_type": "MISC",
+        "cap_gpu": "8",
+        "tasks": 394568,
+        "failed": 83163,
+        "users": 984,
+        "failure_rate_pct": 21.077,
+        "share_of_all_failures_pct": 64.8071,
+        "share_of_tasks_pct": 56.1655
+      },
+      {
+        "gpu_type": "T4",
+        "cap_gpu": "2",
+        "tasks": 217704,
+        "failed": 21474,
+        "users": 343,
+        "failure_rate_pct": 9.8639,
+        "share_of_all_failures_pct": 16.7342,
+        "share_of_tasks_pct": 30.9895
+      },
+      {
+        "gpu_type": "P100",
+        "cap_gpu": "2",
+        "tasks": 54537,
+        "failed": 11496,
+        "users": 781,
+        "failure_rate_pct": 21.0793,
+        "share_of_all_failures_pct": 8.9586,
+        "share_of_tasks_pct": 7.7632
+      },
+      {
+        "gpu_type": "V100",
+        "cap_gpu": "8",
+        "tasks": 22458,
+        "failed": 6967,
+        "users": 730,
+        "failure_rate_pct": 31.0224,
+        "share_of_all_failures_pct": 5.4292,
+        "share_of_tasks_pct": 3.1968
+      },
+      {
+        "gpu_type": "V100M32",
+        "cap_gpu": "8",
+        "tasks": 13241,
+        "failed": 5223,
+        "users": 570,
+        "failure_rate_pct": 39.4457,
+        "share_of_all_failures_pct": 4.0702,
+        "share_of_tasks_pct": 1.8848
+      },
+      {
+        "gpu_type": "<NULL>",
+        "cap_gpu": "8",
+        "tasks": 1,
+        "failed": 1,
+        "users": 1,
+        "failure_rate_pct": 100.0,
+        "share_of_all_failures_pct": 0.0008,
+        "share_of_tasks_pct": 0.0001
+      }
+    ],
+    "secondary_plan_gpu_bucket": [
+      {
+        "plan_gpu_bucket": "=100 (one GPU)",
+        "tasks": 365502,
+        "failed": 62388,
+        "users": 1172,
+        "failure_rate_pct": 17.0691,
+        "share_of_all_failures_pct": 48.6176,
+        "share_of_tasks_pct": 52.0281
+      },
+      {
+        "plan_gpu_bucket": "=25 (quarter GPU)",
+        "tasks": 162847,
+        "failed": 19296,
+        "users": 507,
+        "failure_rate_pct": 11.8492,
+        "share_of_all_failures_pct": 15.0369,
+        "share_of_tasks_pct": 23.1808
+      },
+      {
+        "plan_gpu_bucket": "=50",
+        "tasks": 106073,
+        "failed": 16355,
+        "users": 401,
+        "failure_rate_pct": 15.4186,
+        "share_of_all_failures_pct": 12.7451,
+        "share_of_tasks_pct": 15.0992
+      },
+      {
+        "plan_gpu_bucket": "(0,25)",
+        "tasks": 40720,
+        "failed": 21385,
+        "users": 218,
+        "failure_rate_pct": 52.5172,
+        "share_of_all_failures_pct": 16.6648,
+        "share_of_tasks_pct": 5.7964
+      },
+      {
+        "plan_gpu_bucket": ">=200",
+        "tasks": 25721,
+        "failed": 8238,
+        "users": 309,
+        "failure_rate_pct": 32.0283,
+        "share_of_all_failures_pct": 6.4197,
+        "share_of_tasks_pct": 3.6613
+      },
+      {
+        "plan_gpu_bucket": "(50,100)",
+        "tasks": 863,
+        "failed": 330,
+        "users": 31,
+        "failure_rate_pct": 38.2387,
+        "share_of_all_failures_pct": 0.2572,
+        "share_of_tasks_pct": 0.1228
+      },
+      {
+        "plan_gpu_bucket": "(25,50)",
+        "tasks": 751,
+        "failed": 331,
+        "users": 47,
+        "failure_rate_pct": 44.0746,
+        "share_of_all_failures_pct": 0.2579,
+        "share_of_tasks_pct": 0.1069
+      },
+      {
+        "plan_gpu_bucket": "(100,200)",
+        "tasks": 32,
+        "failed": 1,
+        "users": 2,
+        "failure_rate_pct": 3.125,
+        "share_of_all_failures_pct": 0.0008,
+        "share_of_tasks_pct": 0.0046
+      }
+    ]
+  },
+  "kanvas_comparable": {
+    "n_tasks": 539630,
+    "n_failed": 147869,
+    "n_users": 1157,
+    "failure_rate_pct": 27.4019,
+    "machine_class_cap_gpu": [
+      {
+        "cap_gpu": "8",
+        "tasks": 373928,
+        "failed": 128333,
+        "users": 950,
+        "failure_rate_pct": 34.3202,
+        "share_of_all_failures_pct": 86.7883,
+        "share_of_tasks_pct": 69.2934
+      },
+      {
+        "cap_gpu": "2",
+        "tasks": 165702,
+        "failed": 19536,
+        "users": 924,
+        "failure_rate_pct": 11.7898,
+        "share_of_all_failures_pct": 13.2117,
+        "share_of_tasks_pct": 30.7066
+      }
+    ],
+    "quarter_gpu_cell": {
+      "definition": "plan_gpu == 25 and cap_gpu == 8 (Paper 1); contrast plan_gpu == 25 and cap_gpu == 2",
+      "plan25_cap8": {
+        "tasks": 115174,
+        "failed": 63032,
+        "users": 343,
+        "failure_rate_pct": 54.7276
+      },
+      "plan25_cap2": {
+        "tasks": 33604,
+        "failed": 1837,
+        "users": 242,
+        "failure_rate_pct": 5.4666
+      },
+      "rate_ratio_cap8_over_cap2": 10.0113,
+      "cap8_all_other_plan_gpu": {
+        "tasks": 258754,
+        "failed": 65301,
+        "users": 925,
+        "failure_rate_pct": 25.2367
+      },
+      "plan25_cap8_share_of_all_failures_pct": 42.6269
+    },
+    "plan_gpu_x_cap_gpu_paper1_values": [
+      {
+        "plan_gpu": 10,
+        "cap_gpu": 2,
+        "tasks": 4122,
+        "failed": 269,
+        "users": 25,
+        "failure_rate_pct": 6.526
+      },
+      {
+        "plan_gpu": 25,
+        "cap_gpu": 2,
+        "tasks": 33604,
+        "failed": 1837,
+        "users": 242,
+        "failure_rate_pct": 5.4666
+      },
+      {
+        "plan_gpu": 50,
+        "cap_gpu": 2,
+        "tasks": 39255,
+        "failed": 4844,
+        "users": 203,
+        "failure_rate_pct": 12.3398
+      },
+      {
+        "plan_gpu": 100,
+        "cap_gpu": 2,
+        "tasks": 82862,
+        "failed": 11622,
+        "users": 812,
+        "failure_rate_pct": 14.0257
+      },
+      {
+        "plan_gpu": 10,
+        "cap_gpu": 8,
+        "tasks": 54782,
+        "failed": 18626,
+        "users": 47,
+        "failure_rate_pct": 34.0002
+      },
+      {
+        "plan_gpu": 25,
+        "cap_gpu": 8,
+        "tasks": 115174,
+        "failed": 63032,
+        "users": 343,
+        "failure_rate_pct": 54.7276
+      },
+      {
+        "plan_gpu": 50,
+        "cap_gpu": 8,
+        "tasks": 34564,
+        "failed": 3796,
+        "users": 272,
+        "failure_rate_pct": 10.9825
+      },
+      {
+        "plan_gpu": 100,
+        "cap_gpu": 8,
+        "tasks": 145909,
+        "failed": 37942,
+        "users": 814,
+        "failure_rate_pct": 26.0039
+      }
+    ],
+    "plan_gpu_within_cap_gpu_n_ge_100": {
+      "2": [
+        {
+          "plan_gpu": "1",
+          "tasks": 125,
+          "failed": 48,
+          "users": 11,
+          "failure_rate_pct": 38.4
+        },
+        {
+          "plan_gpu": "5",
+          "tasks": 1446,
+          "failed": 147,
+          "users": 29,
+          "failure_rate_pct": 10.166
+        },
+        {
+          "plan_gpu": "10",
+          "tasks": 4122,
+          "failed": 269,
+          "users": 25,
+          "failure_rate_pct": 6.526
+        },
+        {
+          "plan_gpu": "15",
+          "tasks": 143,
+          "failed": 13,
+          "users": 11,
+          "failure_rate_pct": 9.0909
+        },
+        {
+          "plan_gpu": "20",
+          "tasks": 988,
+          "failed": 135,
+          "users": 40,
+          "failure_rate_pct": 13.664
+        },
+        {
+          "plan_gpu": "25",
+          "tasks": 33604,
+          "failed": 1837,
+          "users": 242,
+          "failure_rate_pct": 5.4666
+        },
+        {
+          "plan_gpu": "50",
+          "tasks": 39255,
+          "failed": 4844,
+          "users": 203,
+          "failure_rate_pct": 12.3398
+        },
+        {
+          "plan_gpu": "100",
+          "tasks": 82862,
+          "failed": 11622,
+          "users": 812,
+          "failure_rate_pct": 14.0257
+        },
+        {
+          "plan_gpu": "200",
+          "tasks": 2877,
+          "failed": 495,
+          "users": 121,
+          "failure_rate_pct": 17.2054
+        }
+      ],
+      "8": [
+        {
+          "plan_gpu": "1",
+          "tasks": 137,
+          "failed": 15,
+          "users": 8,
+          "failure_rate_pct": 10.9489
+        },
+        {
+          "plan_gpu": "5",
+          "tasks": 6851,
+          "failed": 1458,
+          "users": 26,
+          "failure_rate_pct": 21.2816
+        },
+        {
+          "plan_gpu": "10",
+          "tasks": 54782,
+          "failed": 18626,
+          "users": 47,
+          "failure_rate_pct": 34.0002
+        },
+        {
+          "plan_gpu": "15",
+          "tasks": 1895,
+          "failed": 143,
+          "users": 18,
+          "failure_rate_pct": 7.5462
+        },
+        {
+          "plan_gpu": "20",
+          "tasks": 5903,
+          "failed": 733,
+          "users": 77,
+          "failure_rate_pct": 12.4174
+        },
+        {
+          "plan_gpu": "25",
+          "tasks": 115174,
+          "failed": 63032,
+          "users": 343,
+          "failure_rate_pct": 54.7276
+        },
+        {
+          "plan_gpu": "30",
+          "tasks": 313,
+          "failed": 82,
+          "users": 21,
+          "failure_rate_pct": 26.1981
+        },
+        {
+          "plan_gpu": "40",
+          "tasks": 101,
+          "failed": 33,
+          "users": 11,
+          "failure_rate_pct": 32.6733
+        },
+        {
+          "plan_gpu": "50",
+          "tasks": 34564,
+          "failed": 3796,
+          "users": 272,
+          "failure_rate_pct": 10.9825
+        },
+        {
+          "plan_gpu": "60",
+          "tasks": 188,
+          "failed": 33,
+          "users": 13,
+          "failure_rate_pct": 17.5532
+        },
+        {
+          "plan_gpu": "80",
+          "tasks": 102,
+          "failed": 48,
+          "users": 8,
+          "failure_rate_pct": 47.0588
+        },
+        {
+          "plan_gpu": "100",
+          "tasks": 145909,
+          "failed": 37942,
+          "users": 814,
+          "failure_rate_pct": 26.0039
+        },
+        {
+          "plan_gpu": "200",
+          "tasks": 3863,
+          "failed": 1038,
+          "users": 138,
+          "failure_rate_pct": 26.8703
+        },
+        {
+          "plan_gpu": "300",
+          "tasks": 553,
+          "failed": 87,
+          "users": 19,
+          "failure_rate_pct": 15.7324
+        },
+        {
+          "plan_gpu": "400",
+          "tasks": 851,
+          "failed": 358,
+          "users": 77,
+          "failure_rate_pct": 42.0682
+        },
+        {
+          "plan_gpu": "500",
+          "tasks": 1844,
+          "failed": 377,
+          "users": 12,
+          "failure_rate_pct": 20.4447
+        },
+        {
+          "plan_gpu": "800",
+          "tasks": 690,
+          "failed": 403,
+          "users": 36,
+          "failure_rate_pct": 58.4058
+        }
+      ]
+    },
+    "secondary_task_gpu_type": [
+      {
+        "gpu_type": "MISC",
+        "tasks": 353475,
+        "failed": 121446,
+        "users": 865,
+        "failure_rate_pct": 34.3577,
+        "share_of_all_failures_pct": 82.1308,
+        "share_of_tasks_pct": 65.5032
+      },
+      {
+        "gpu_type": "T4",
+        "tasks": 129341,
+        "failed": 11259,
+        "users": 279,
+        "failure_rate_pct": 8.7049,
+        "share_of_all_failures_pct": 7.6142,
+        "share_of_tasks_pct": 23.9685
+      },
+      {
+        "gpu_type": "P100",
+        "tasks": 36361,
+        "failed": 8277,
+        "users": 673,
+        "failure_rate_pct": 22.7634,
+        "share_of_all_failures_pct": 5.5975,
+        "share_of_tasks_pct": 6.7381
+      },
+      {
+        "gpu_type": "V100",
+        "tasks": 12924,
+        "failed": 4151,
+        "users": 586,
+        "failure_rate_pct": 32.1185,
+        "share_of_all_failures_pct": 2.8072,
+        "share_of_tasks_pct": 2.395
+      },
+      {
+        "gpu_type": "V100M32",
+        "tasks": 7529,
+        "failed": 2736,
+        "users": 468,
+        "failure_rate_pct": 36.3395,
+        "share_of_all_failures_pct": 1.8503,
+        "share_of_tasks_pct": 1.3952
+      }
+    ],
+    "secondary_gpu_type_x_cap_gpu": [
+      {
+        "gpu_type": "MISC",
+        "cap_gpu": "8",
+        "tasks": 353475,
+        "failed": 121446,
+        "users": 865,
+        "failure_rate_pct": 34.3577,
+        "share_of_all_failures_pct": 82.1308,
+        "share_of_tasks_pct": 65.5032
+      },
+      {
+        "gpu_type": "T4",
+        "cap_gpu": "2",
+        "tasks": 129341,
+        "failed": 11259,
+        "users": 279,
+        "failure_rate_pct": 8.7049,
+        "share_of_all_failures_pct": 7.6142,
+        "share_of_tasks_pct": 23.9685
+      },
+      {
+        "gpu_type": "P100",
+        "cap_gpu": "2",
+        "tasks": 36361,
+        "failed": 8277,
+        "users": 673,
+        "failure_rate_pct": 22.7634,
+        "share_of_all_failures_pct": 5.5975,
+        "share_of_tasks_pct": 6.7381
+      },
+      {
+        "gpu_type": "V100",
+        "cap_gpu": "8",
+        "tasks": 12924,
+        "failed": 4151,
+        "users": 586,
+        "failure_rate_pct": 32.1185,
+        "share_of_all_failures_pct": 2.8072,
+        "share_of_tasks_pct": 2.395
+      },
+      {
+        "gpu_type": "V100M32",
+        "cap_gpu": "8",
+        "tasks": 7529,
+        "failed": 2736,
+        "users": 468,
+        "failure_rate_pct": 36.3395,
+        "share_of_all_failures_pct": 1.8503,
+        "share_of_tasks_pct": 1.3952
+      }
+    ],
+    "secondary_plan_gpu_bucket": [
+      {
+        "plan_gpu_bucket": "=100 (one GPU)",
+        "tasks": 228771,
+        "failed": 49564,
+        "users": 1011,
+        "failure_rate_pct": 21.6653,
+        "share_of_all_failures_pct": 33.5189,
+        "share_of_tasks_pct": 42.394
+      },
+      {
+        "plan_gpu_bucket": "=25 (quarter GPU)",
+        "tasks": 148778,
+        "failed": 64869,
+        "users": 435,
+        "failure_rate_pct": 43.6012,
+        "share_of_all_failures_pct": 43.8692,
+        "share_of_tasks_pct": 27.5704
+      },
+      {
+        "plan_gpu_bucket": "(0,25)",
+        "tasks": 76419,
+        "failed": 21608,
+        "users": 176,
+        "failure_rate_pct": 28.2757,
+        "share_of_all_failures_pct": 14.6129,
+        "share_of_tasks_pct": 14.1614
+      },
+      {
+        "plan_gpu_bucket": "=50",
+        "tasks": 73819,
+        "failed": 8640,
+        "users": 339,
+        "failure_rate_pct": 11.7043,
+        "share_of_all_failures_pct": 5.843,
+        "share_of_tasks_pct": 13.6796
+      },
+      {
+        "plan_gpu_bucket": ">=200",
+        "tasks": 10749,
+        "failed": 2794,
+        "users": 227,
+        "failure_rate_pct": 25.9931,
+        "share_of_all_failures_pct": 1.8895,
+        "share_of_tasks_pct": 1.9919
+      },
+      {
+        "plan_gpu_bucket": "(50,100)",
+        "tasks": 556,
+        "failed": 246,
+        "users": 27,
+        "failure_rate_pct": 44.2446,
+        "share_of_all_failures_pct": 0.1664,
+        "share_of_tasks_pct": 0.103
+      },
+      {
+        "plan_gpu_bucket": "(25,50)",
+        "tasks": 510,
+        "failed": 147,
+        "users": 33,
+        "failure_rate_pct": 28.8235,
+        "share_of_all_failures_pct": 0.0994,
+        "share_of_tasks_pct": 0.0945
+      },
+      {
+        "plan_gpu_bucket": "(100,200)",
+        "tasks": 28,
+        "failed": 1,
+        "users": 2,
+        "failure_rate_pct": 3.5714,
+        "share_of_all_failures_pct": 0.0007,
+        "share_of_tasks_pct": 0.0052
+      }
+    ]
+  },
+  "kanvas_comparable_without_top_user": {
+    "n_tasks": 372268,
+    "n_failed": 67113,
+    "n_users": 1156,
+    "failure_rate_pct": 18.0281,
+    "machine_class_cap_gpu": [
+      {
+        "cap_gpu": "8",
+        "tasks": 213214,
+        "failed": 49738,
+        "users": 949,
+        "failure_rate_pct": 23.3277,
+        "share_of_all_failures_pct": 74.1108,
+        "share_of_tasks_pct": 57.2743
+      },
+      {
+        "cap_gpu": "2",
+        "tasks": 159054,
+        "failed": 17375,
+        "users": 923,
+        "failure_rate_pct": 10.924,
+        "share_of_all_failures_pct": 25.8892,
+        "share_of_tasks_pct": 42.7257
+      }
+    ],
+    "quarter_gpu_cell": {
+      "definition": "plan_gpu == 25 and cap_gpu == 8 (Paper 1); contrast plan_gpu == 25 and cap_gpu == 2",
+      "plan25_cap8": {
+        "tasks": 49619,
+        "failed": 7969,
+        "users": 342,
+        "failure_rate_pct": 16.0604
+      },
+      "plan25_cap2": {
+        "tasks": 33505,
+        "failed": 1826,
+        "users": 241,
+        "failure_rate_pct": 5.4499
+      },
+      "rate_ratio_cap8_over_cap2": 2.9469,
+      "cap8_all_other_plan_gpu": {
+        "tasks": 163595,
+        "failed": 41769,
+        "users": 924,
+        "failure_rate_pct": 25.532
+      },
+      "plan25_cap8_share_of_all_failures_pct": 11.874
+    },
+    "plan_gpu_x_cap_gpu_paper1_values": [
+      {
+        "plan_gpu": 10,
+        "cap_gpu": 2,
+        "tasks": 2706,
+        "failed": 193,
+        "users": 24,
+        "failure_rate_pct": 7.1323
+      },
+      {
+        "plan_gpu": 25,
+        "cap_gpu": 2,
+        "tasks": 33505,
+        "failed": 1826,
+        "users": 241,
+        "failure_rate_pct": 5.4499
+      },
+      {
+        "plan_gpu": 50,
+        "cap_gpu": 2,
+        "tasks": 38955,
+        "failed": 4840,
+        "users": 202,
+        "failure_rate_pct": 12.4246
+      },
+      {
+        "plan_gpu": 100,
+        "cap_gpu": 2,
+        "tasks": 78232,
+        "failed": 9555,
+        "users": 811,
+        "failure_rate_pct": 12.2137
+      },
+      {
+        "plan_gpu": 10,
+        "cap_gpu": 8,
+        "tasks": 11982,
+        "failed": 9657,
+        "users": 46,
+        "failure_rate_pct": 80.5959
+      },
+      {
+        "plan_gpu": 25,
+        "cap_gpu": 8,
+        "tasks": 49619,
+        "failed": 7969,
+        "users": 342,
+        "failure_rate_pct": 16.0604
+      },
+      {
+        "plan_gpu": 50,
+        "cap_gpu": 8,
+        "tasks": 22152,
+        "failed": 3621,
+        "users": 271,
+        "failure_rate_pct": 16.3462
+      },
+      {
+        "plan_gpu": 100,
+        "cap_gpu": 8,
+        "tasks": 116811,
+        "failed": 24836,
+        "users": 813,
+        "failure_rate_pct": 21.2617
+      }
+    ],
+    "plan_gpu_within_cap_gpu_n_ge_100": {
+      "2": [
+        {
+          "plan_gpu": "1",
+          "tasks": 125,
+          "failed": 48,
+          "users": 11,
+          "failure_rate_pct": 38.4
+        },
+        {
+          "plan_gpu": "5",
+          "tasks": 1396,
+          "failed": 147,
+          "users": 28,
+          "failure_rate_pct": 10.5301
+        },
+        {
+          "plan_gpu": "10",
+          "tasks": 2706,
+          "failed": 193,
+          "users": 24,
+          "failure_rate_pct": 7.1323
+        },
+        {
+          "plan_gpu": "20",
+          "tasks": 923,
+          "failed": 135,
+          "users": 39,
+          "failure_rate_pct": 14.6262
+        },
+        {
+          "plan_gpu": "25",
+          "tasks": 33505,
+          "failed": 1826,
+          "users": 241,
+          "failure_rate_pct": 5.4499
+        },
+        {
+          "plan_gpu": "50",
+          "tasks": 38955,
+          "failed": 4840,
+          "users": 202,
+          "failure_rate_pct": 12.4246
+        },
+        {
+          "plan_gpu": "100",
+          "tasks": 78232,
+          "failed": 9555,
+          "users": 811,
+          "failure_rate_pct": 12.2137
+        },
+        {
+          "plan_gpu": "200",
+          "tasks": 2877,
+          "failed": 495,
+          "users": 121,
+          "failure_rate_pct": 17.2054
+        }
+      ],
+      "8": [
+        {
+          "plan_gpu": "1",
+          "tasks": 137,
+          "failed": 15,
+          "users": 8,
+          "failure_rate_pct": 10.9489
+        },
+        {
+          "plan_gpu": "5",
+          "tasks": 474,
+          "failed": 253,
+          "users": 25,
+          "failure_rate_pct": 53.3755
+        },
+        {
+          "plan_gpu": "10",
+          "tasks": 11982,
+          "failed": 9657,
+          "users": 46,
+          "failure_rate_pct": 80.5959
+        },
+        {
+          "plan_gpu": "15",
+          "tasks": 425,
+          "failed": 128,
+          "users": 17,
+          "failure_rate_pct": 30.1176
+        },
+        {
+          "plan_gpu": "20",
+          "tasks": 3037,
+          "failed": 672,
+          "users": 76,
+          "failure_rate_pct": 22.1271
+        },
+        {
+          "plan_gpu": "25",
+          "tasks": 49619,
+          "failed": 7969,
+          "users": 342,
+          "failure_rate_pct": 16.0604
+        },
+        {
+          "plan_gpu": "30",
+          "tasks": 178,
+          "failed": 82,
+          "users": 20,
+          "failure_rate_pct": 46.0674
+        },
+        {
+          "plan_gpu": "40",
+          "tasks": 101,
+          "failed": 33,
+          "users": 11,
+          "failure_rate_pct": 32.6733
+        },
+        {
+          "plan_gpu": "50",
+          "tasks": 22152,
+          "failed": 3621,
+          "users": 271,
+          "failure_rate_pct": 16.3462
+        },
+        {
+          "plan_gpu": "60",
+          "tasks": 188,
+          "failed": 33,
+          "users": 13,
+          "failure_rate_pct": 17.5532
+        },
+        {
+          "plan_gpu": "80",
+          "tasks": 102,
+          "failed": 48,
+          "users": 8,
+          "failure_rate_pct": 47.0588
+        },
+        {
+          "plan_gpu": "100",
+          "tasks": 116811,
+          "failed": 24836,
+          "users": 813,
+          "failure_rate_pct": 21.2617
+        },
+        {
+          "plan_gpu": "200",
+          "tasks": 3862,
+          "failed": 1037,
+          "users": 137,
+          "failure_rate_pct": 26.8514
+        },
+        {
+          "plan_gpu": "300",
+          "tasks": 553,
+          "failed": 87,
+          "users": 19,
+          "failure_rate_pct": 15.7324
+        },
+        {
+          "plan_gpu": "400",
+          "tasks": 851,
+          "failed": 358,
+          "users": 77,
+          "failure_rate_pct": 42.0682
+        },
+        {
+          "plan_gpu": "500",
+          "tasks": 1844,
+          "failed": 377,
+          "users": 12,
+          "failure_rate_pct": 20.4447
+        },
+        {
+          "plan_gpu": "800",
+          "tasks": 690,
+          "failed": 403,
+          "users": 36,
+          "failure_rate_pct": 58.4058
+        }
+      ]
+    },
+    "secondary_task_gpu_type": [
+      {
+        "gpu_type": "MISC",
+        "tasks": 195736,
+        "failed": 44408,
+        "users": 864,
+        "failure_rate_pct": 22.6877,
+        "share_of_all_failures_pct": 66.169,
+        "share_of_tasks_pct": 52.5793
+      },
+      {
+        "gpu_type": "T4",
+        "tasks": 129341,
+        "failed": 11259,
+        "users": 279,
+        "failure_rate_pct": 8.7049,
+        "share_of_all_failures_pct": 16.7762,
+        "share_of_tasks_pct": 34.7441
+      },
+      {
+        "gpu_type": "P100",
+        "tasks": 29713,
+        "failed": 6116,
+        "users": 672,
+        "failure_rate_pct": 20.5836,
+        "share_of_all_failures_pct": 9.113,
+        "share_of_tasks_pct": 7.9816
+      },
+      {
+        "gpu_type": "V100",
+        "tasks": 11296,
+        "failed": 3293,
+        "users": 585,
+        "failure_rate_pct": 29.1519,
+        "share_of_all_failures_pct": 4.9066,
+        "share_of_tasks_pct": 3.0344
+      },
+      {
+        "gpu_type": "V100M32",
+        "tasks": 6182,
+        "failed": 2037,
+        "users": 467,
+        "failure_rate_pct": 32.9505,
+        "share_of_all_failures_pct": 3.0352,
+        "share_of_tasks_pct": 1.6606
+      }
+    ],
+    "secondary_gpu_type_x_cap_gpu": [
+      {
+        "gpu_type": "MISC",
+        "cap_gpu": "8",
+        "tasks": 195736,
+        "failed": 44408,
+        "users": 864,
+        "failure_rate_pct": 22.6877,
+        "share_of_all_failures_pct": 66.169,
+        "share_of_tasks_pct": 52.5793
+      },
+      {
+        "gpu_type": "T4",
+        "cap_gpu": "2",
+        "tasks": 129341,
+        "failed": 11259,
+        "users": 279,
+        "failure_rate_pct": 8.7049,
+        "share_of_all_failures_pct": 16.7762,
+        "share_of_tasks_pct": 34.7441
+      },
+      {
+        "gpu_type": "P100",
+        "cap_gpu": "2",
+        "tasks": 29713,
+        "failed": 6116,
+        "users": 672,
+        "failure_rate_pct": 20.5836,
+        "share_of_all_failures_pct": 9.113,
+        "share_of_tasks_pct": 7.9816
+      },
+      {
+        "gpu_type": "V100",
+        "cap_gpu": "8",
+        "tasks": 11296,
+        "failed": 3293,
+        "users": 585,
+        "failure_rate_pct": 29.1519,
+        "share_of_all_failures_pct": 4.9066,
+        "share_of_tasks_pct": 3.0344
+      },
+      {
+        "gpu_type": "V100M32",
+        "cap_gpu": "8",
+        "tasks": 6182,
+        "failed": 2037,
+        "users": 467,
+        "failure_rate_pct": 32.9505,
+        "share_of_all_failures_pct": 3.0352,
+        "share_of_tasks_pct": 1.6606
+      }
+    ],
+    "secondary_plan_gpu_bucket": [
+      {
+        "plan_gpu_bucket": "=100 (one GPU)",
+        "tasks": 195043,
+        "failed": 34391,
+        "users": 1010,
+        "failure_rate_pct": 17.6325,
+        "share_of_all_failures_pct": 51.2434,
+        "share_of_tasks_pct": 52.3932
+      },
+      {
+        "plan_gpu_bucket": "=25 (quarter GPU)",
+        "tasks": 83124,
+        "failed": 9795,
+        "users": 434,
+        "failure_rate_pct": 11.7836,
+        "share_of_all_failures_pct": 14.5948,
+        "share_of_tasks_pct": 22.3291
+      },
+      {
+        "plan_gpu_bucket": "=50",
+        "tasks": 61107,
+        "failed": 8461,
+        "users": 338,
+        "failure_rate_pct": 13.8462,
+        "share_of_all_failures_pct": 12.6071,
+        "share_of_tasks_pct": 16.4148
+      },
+      {
+        "plan_gpu_bucket": "(0,25)",
+        "tasks": 21301,
+        "failed": 11279,
+        "users": 175,
+        "failure_rate_pct": 52.9506,
+        "share_of_all_failures_pct": 16.806,
+        "share_of_tasks_pct": 5.722
+      },
+      {
+        "plan_gpu_bucket": ">=200",
+        "tasks": 10748,
+        "failed": 2793,
+        "users": 226,
+        "failure_rate_pct": 25.9862,
+        "share_of_all_failures_pct": 4.1616,
+        "share_of_tasks_pct": 2.8872
+      },
+      {
+        "plan_gpu_bucket": "(50,100)",
+        "tasks": 556,
+        "failed": 246,
+        "users": 27,
+        "failure_rate_pct": 44.2446,
+        "share_of_all_failures_pct": 0.3665,
+        "share_of_tasks_pct": 0.1494
+      },
+      {
+        "plan_gpu_bucket": "(25,50)",
+        "tasks": 361,
+        "failed": 147,
+        "users": 32,
+        "failure_rate_pct": 40.7202,
+        "share_of_all_failures_pct": 0.219,
+        "share_of_tasks_pct": 0.097
+      },
+      {
+        "plan_gpu_bucket": "(100,200)",
+        "tasks": 28,
+        "failed": 1,
+        "users": 2,
+        "failure_rate_pct": 3.5714,
+        "share_of_all_failures_pct": 0.0015,
+        "share_of_tasks_pct": 0.0075
+      }
+    ]
+  },
+  "user_concentration_curve_S3": {
+    "by_tasks": {
+      "user_fraction": [
+        0.0,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.1,
+        0.11,
+        0.12,
+        0.13,
+        0.14,
+        0.15,
+        0.16,
+        0.17,
+        0.18,
+        0.19,
+        0.2,
+        0.21,
+        0.22,
+        0.23,
+        0.24,
+        0.25,
+        0.26,
+        0.27,
+        0.28,
+        0.29,
+        0.3,
+        0.31,
+        0.32,
+        0.33,
+        0.34,
+        0.35,
+        0.36,
+        0.37,
+        0.38,
+        0.39,
+        0.4,
+        0.41,
+        0.42,
+        0.43,
+        0.44,
+        0.45,
+        0.46,
+        0.47,
+        0.48,
+        0.49,
+        0.5,
+        0.51,
+        0.52,
+        0.53,
+        0.54,
+        0.55,
+        0.56,
+        0.57,
+        0.58,
+        0.59,
+        0.6,
+        0.61,
+        0.62,
+        0.63,
+        0.64,
+        0.65,
+        0.66,
+        0.67,
+        0.68,
+        0.69,
+        0.7,
+        0.71,
+        0.72,
+        0.73,
+        0.74,
+        0.75,
+        0.76,
+        0.77,
+        0.78,
+        0.79,
+        0.8,
+        0.81,
+        0.82,
+        0.83,
+        0.84,
+        0.85,
+        0.86,
+        0.87,
+        0.88,
+        0.89,
+        0.9,
+        0.91,
+        0.92,
+        0.93,
+        0.94,
+        0.95,
+        0.96,
+        0.97,
+        0.98,
+        0.99,
+        1.0
+      ],
+      "cumulative_share": [
+        0.0,
+        0.629824,
+        0.719847,
+        0.773208,
+        0.807952,
+        0.83149,
+        0.848648,
+        0.861988,
+        0.872928,
+        0.881215,
+        0.88851,
+        0.895125,
+        0.901175,
+        0.906708,
+        0.911732,
+        0.91677,
+        0.921024,
+        0.924982,
+        0.928687,
+        0.932266,
+        0.935683,
+        0.938967,
+        0.942292,
+        0.945195,
+        0.947936,
+        0.950575,
+        0.953061,
+        0.955419,
+        0.957639,
+        0.95993,
+        0.961974,
+        0.96394,
+        0.965805,
+        0.967579,
+        0.969268,
+        0.970891,
+        0.972571,
+        0.974069,
+        0.975494,
+        0.976832,
+        0.978125,
+        0.979357,
+        0.980526,
+        0.981725,
+        0.982773,
+        0.983763,
+        0.984706,
+        0.985614,
+        0.986482,
+        0.987312,
+        0.988113,
+        0.988934,
+        0.98964,
+        0.990297,
+        0.990916,
+        0.991494,
+        0.992028,
+        0.992537,
+        0.99306,
+        0.993522,
+        0.993965,
+        0.994389,
+        0.994789,
+        0.99517,
+        0.995536,
+        0.9959,
+        0.996207,
+        0.996495,
+        0.996762,
+        0.997013,
+        0.997255,
+        0.997483,
+        0.997715,
+        0.997918,
+        0.998107,
+        0.998286,
+        0.998451,
+        0.998605,
+        0.998748,
+        0.998888,
+        0.999006,
+        0.999123,
+        0.999229,
+        0.999325,
+        0.999416,
+        0.999496,
+        0.999573,
+        0.999639,
+        0.999691,
+        0.999744,
+        0.999784,
+        0.999823,
+        0.999854,
+        0.999882,
+        0.999909,
+        0.999934,
+        0.999947,
+        0.99996,
+        0.999974,
+        0.999987,
+        1.0
+      ]
+    },
+    "by_failed": {
+      "user_fraction": [
+        0.0,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.1,
+        0.11,
+        0.12,
+        0.13,
+        0.14,
+        0.15,
+        0.16,
+        0.17,
+        0.18,
+        0.19,
+        0.2,
+        0.21,
+        0.22,
+        0.23,
+        0.24,
+        0.25,
+        0.26,
+        0.27,
+        0.28,
+        0.29,
+        0.3,
+        0.31,
+        0.32,
+        0.33,
+        0.34,
+        0.35,
+        0.36,
+        0.37,
+        0.38,
+        0.39,
+        0.4,
+        0.41,
+        0.42,
+        0.43,
+        0.44,
+        0.45,
+        0.46,
+        0.47,
+        0.48,
+        0.49,
+        0.5,
+        0.51,
+        0.52,
+        0.53,
+        0.54,
+        0.55,
+        0.56,
+        0.57,
+        0.58,
+        0.59,
+        0.6,
+        0.61,
+        0.62,
+        0.63,
+        0.64,
+        0.65,
+        0.66,
+        0.67,
+        0.68,
+        0.69,
+        0.7,
+        0.71,
+        0.72,
+        0.73,
+        0.74,
+        0.75,
+        0.76,
+        0.77,
+        0.78,
+        0.79,
+        0.8,
+        0.81,
+        0.82,
+        0.83,
+        0.84,
+        0.85,
+        0.86,
+        0.87,
+        0.88,
+        0.89,
+        0.9,
+        0.91,
+        0.92,
+        0.93,
+        0.94,
+        0.95,
+        0.96,
+        0.97,
+        0.98,
+        0.99,
+        1.0
+      ],
+      "cumulative_share": [
+        0.0,
+        0.700907,
+        0.737211,
+        0.760535,
+        0.778535,
+        0.792822,
+        0.804961,
+        0.816133,
+        0.8271,
+        0.836556,
+        0.845184,
+        0.853095,
+        0.860627,
+        0.867826,
+        0.874657,
+        0.881587,
+        0.887468,
+        0.892946,
+        0.898214,
+        0.903304,
+        0.908243,
+        0.912968,
+        0.917793,
+        0.922032,
+        0.925994,
+        0.929797,
+        0.933442,
+        0.936961,
+        0.94023,
+        0.943633,
+        0.946633,
+        0.949483,
+        0.95215,
+        0.954676,
+        0.957117,
+        0.95946,
+        0.961883,
+        0.964032,
+        0.966074,
+        0.968021,
+        0.969842,
+        0.971599,
+        0.973297,
+        0.975086,
+        0.976637,
+        0.978066,
+        0.979416,
+        0.980686,
+        0.981897,
+        0.983017,
+        0.984082,
+        0.985158,
+        0.986124,
+        0.98705,
+        0.987913,
+        0.988732,
+        0.9895,
+        0.99022,
+        0.990941,
+        0.991594,
+        0.992211,
+        0.992797,
+        0.993363,
+        0.993905,
+        0.994388,
+        0.994887,
+        0.99535,
+        0.995769,
+        0.996181,
+        0.996549,
+        0.996905,
+        0.997214,
+        0.997522,
+        0.99778,
+        0.998037,
+        0.99827,
+        0.998476,
+        0.998682,
+        0.998836,
+        0.999003,
+        0.999157,
+        0.999264,
+        0.999367,
+        0.99947,
+        0.999573,
+        0.999675,
+        0.999735,
+        0.999786,
+        0.999838,
+        0.999889,
+        0.999941,
+        0.999992,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "paper1_published_reference": {
+    "note": "Paper 1's own committed outputs (KANVAS 18,890-task sample), copied for comparison only",
+    "repo": "github.com/Sajish85/machine-class-is-the-message",
+    "commit": "4084d2d740ca508cfa40a21e21f71ac0f2567da4",
+    "n_tasks": 18890,
+    "failure_rate_pct": 27.496,
+    "rate_by_cap_gpu": {
+      "2.0": {
+        "failure_rate_pct": 11.5312,
+        "tasks": 5793
+      },
+      "8.0": {
+        "failure_rate_pct": 34.5575,
+        "tasks": 13097
+      }
+    },
+    "rate_by_plan_gpu_cap2": {
+      "10.0": {
+        "failure_rate_pct": 8.5271,
+        "tasks": 129
+      },
+      "25.0": {
+        "failure_rate_pct": 6.1969,
+        "tasks": 1178
+      },
+      "50.0": {
+        "failure_rate_pct": 11.6751,
+        "tasks": 1379
+      },
+      "100.0": {
+        "failure_rate_pct": 13.2464,
+        "tasks": 2914
+      }
+    },
+    "rate_by_plan_gpu_cap8": {
+      "5.0": {
+        "failure_rate_pct": 18.4615,
+        "tasks": 260
+      },
+      "10.0": {
+        "failure_rate_pct": 34.1612,
+        "tasks": 1973
+      },
+      "20.0": {
+        "failure_rate_pct": 14.8148,
+        "tasks": 216
+      },
+      "25.0": {
+        "failure_rate_pct": 54.1084,
+        "tasks": 4077
+      },
+      "50.0": {
+        "failure_rate_pct": 10.7926,
+        "tasks": 1186
+      },
+      "100.0": {
+        "failure_rate_pct": 26.8579,
+        "tasks": 5019
+      },
+      "200.0": {
+        "failure_rate_pct": 30.4688,
+        "tasks": 256
+      }
+    },
+    "source_files": [
+      "scripts/eda_results.json",
+      "scripts/stratified_results.json"
+    ]
+  }
+}

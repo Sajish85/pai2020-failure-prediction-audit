@@ -1,0 +1,6 @@
+data/
+.venv/
+.venv-clean/
+__pycache__/
+*.duckdb
+*.duckdb.wal

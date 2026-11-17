@@ -1,0 +1,9 @@
+# R1 environment. Python 3.14.3 (the version r1/.venv was built with on 17 Nov 2026).
+# These four pins are copied from requirements-audit.lock.txt (installed and used by audit.py):
+duckdb==2.0.0
+numpy==2.5.5
+pandas==3.1.1
+pyarrow==26.0.1
+# scikit-learn and matplotlib pinned 17 Nov 2026 from the first `make env` (requirements.lock.txt holds the full set).
+scikit-learn==1.9.1
+matplotlib==3.11.2

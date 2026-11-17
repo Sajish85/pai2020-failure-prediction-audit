@@ -1,0 +1,1035 @@
+{
+  "meta": {
+    "script": "r1/scripts/time_split_diag.py",
+    "frame": "tasks_frame.parquet",
+    "n_S3": 985358,
+    "features": [
+      "plan_cpu",
+      "plan_mem",
+      "plan_gpu",
+      "inst_num"
+    ],
+    "time_frac": 0.75,
+    "model_seed": 0,
+    "cut_fractions": [
+      0.5,
+      0.6,
+      0.7,
+      0.75,
+      0.8,
+      0.9
+    ],
+    "shape": "exact value of (plan_cpu, plan_mem, plan_gpu, inst_num)",
+    "csv_min_n": 100,
+    "python": "3.14.3",
+    "sklearn": "1.9.1"
+  },
+  "split_check": {
+    "method": "numpy lexsort on (start_time, job_name, task_name), earliest floor(frac*n) = train",
+    "rows_assigned_differently_from_paigpu_time_split": 0,
+    "start_time_nulls": 0,
+    "max_train_start_le_min_test_start": true
+  },
+  "baseline": {
+    "population": {
+      "n_train": 739018,
+      "n_test": 246340,
+      "train_users": 1239,
+      "test_users": 746,
+      "train_failure_rate_pct": 19.7513,
+      "test_failure_rate_pct": 43.3145,
+      "train_top_user_share_pct": 21.0298,
+      "test_top_user_share_pct": 51.7313,
+      "train_top_user_failure_rate_pct": 22.3674,
+      "test_top_user_failure_rate_pct": 70.2954,
+      "train_others_failure_rate_pct": 19.0547,
+      "test_others_failure_rate_pct": 14.398
+    },
+    "logreg": {
+      "auc_all": 0.821348,
+      "auc_top_user_only": 0.795886,
+      "auc_without_top_user": 0.533712,
+      "equals_eval_grid_cell": true
+    },
+    "gbm": {
+      "auc_all": 0.281093,
+      "auc_top_user_only": 0.206743,
+      "auc_without_top_user": 0.658691,
+      "equals_eval_grid_cell": true
+    }
+  },
+  "train_fit": {
+    "logreg": {
+      "train_auc_all": 0.593275,
+      "train_auc_top_user_only": 0.359213,
+      "train_auc_without_top_user": 0.638161
+    },
+    "gbm": {
+      "train_auc_all": 0.730118,
+      "train_auc_top_user_only": 0.550268,
+      "train_auc_without_top_user": 0.765896
+    }
+  },
+  "pair_decomposition": {
+    "logreg": {
+      "top_failed_vs_top_ok": {
+        "auc": 0.795886,
+        "pair_share_pct": 22.759
+      },
+      "other_failed_vs_other_ok": {
+        "auc": 0.533712,
+        "pair_share_pct": 11.6953
+      },
+      "top_failed_vs_other_ok": {
+        "auc": 0.920224,
+        "pair_share_pct": 61.1962
+      },
+      "other_failed_vs_top_ok": {
+        "auc": 0.336848,
+        "pair_share_pct": 4.3495
+      },
+      "cross_user_pairs": {
+        "auc": 0.881512,
+        "pair_share_pct": 65.5457
+      }
+    },
+    "gbm": {
+      "top_failed_vs_top_ok": {
+        "auc": 0.206743,
+        "pair_share_pct": 22.759
+      },
+      "other_failed_vs_other_ok": {
+        "auc": 0.658691,
+        "pair_share_pct": 11.6953
+      },
+      "top_failed_vs_other_ok": {
+        "auc": 0.223433,
+        "pair_share_pct": 61.1962
+      },
+      "other_failed_vs_top_ok": {
+        "auc": 0.466072,
+        "pair_share_pct": 4.3495
+      },
+      "cross_user_pairs": {
+        "auc": 0.239534,
+        "pair_share_pct": 65.5457
+      }
+    }
+  },
+  "without_top_user": {
+    "same_cut": {
+      "note": "the 75% cut above; the largest user's rows dropped from train and from test",
+      "population": {
+        "n_train": 583604,
+        "n_test": 118905,
+        "train_users": 1238,
+        "test_users": 745,
+        "train_failure_rate_pct": 19.0547,
+        "test_failure_rate_pct": 14.398,
+        "train_top_user_share_pct": 0.0,
+        "test_top_user_share_pct": 0.0,
+        "train_top_user_failure_rate_pct": null,
+        "test_top_user_failure_rate_pct": null,
+        "train_others_failure_rate_pct": 19.0547,
+        "test_others_failure_rate_pct": 14.398
+      },
+      "logreg": {
+        "auc": 0.515435
+      },
+      "gbm": {
+        "auc": 0.671394
+      }
+    },
+    "recut": {
+      "note": "the largest user dropped first, then a fresh earliest-75% / latest-25% cut",
+      "population": {
+        "n_train": 526881,
+        "n_test": 175628,
+        "train_users": 1187,
+        "test_users": 856,
+        "train_failure_rate_pct": 19.453,
+        "test_failure_rate_pct": 14.7072,
+        "train_top_user_share_pct": 0.0,
+        "test_top_user_share_pct": 0.0,
+        "train_top_user_failure_rate_pct": null,
+        "test_top_user_failure_rate_pct": null,
+        "train_others_failure_rate_pct": 19.453,
+        "test_others_failure_rate_pct": 14.7072
+      },
+      "logreg": {
+        "auc": 0.524021
+      },
+      "gbm": {
+        "auc": 0.686353
+      }
+    }
+  },
+  "cut_dates": [
+    {
+      "frac": 0.5,
+      "n_train": 492679,
+      "n_test": 492679,
+      "train_users": 1114,
+      "test_users": 996,
+      "train_failure_rate_pct": 19.7906,
+      "test_failure_rate_pct": 31.4937,
+      "train_top_user_share_pct": 17.4525,
+      "test_top_user_share_pct": 39.9579,
+      "train_top_user_failure_rate_pct": 16.6983,
+      "test_top_user_failure_rate_pct": 55.8685,
+      "train_others_failure_rate_pct": 20.4444,
+      "test_others_failure_rate_pct": 15.2724,
+      "logreg": {
+        "auc_all": 0.721674,
+        "auc_top_user_only": 0.707957,
+        "auc_without_top_user": 0.545946,
+        "auc_top_user_removed_from_both_sides": 0.534042
+      },
+      "gbm": {
+        "auc_all": 0.366392,
+        "auc_top_user_only": 0.20399,
+        "auc_without_top_user": 0.67543,
+        "auc_top_user_removed_from_both_sides": 0.683251
+      }
+    },
+    {
+      "frac": 0.6,
+      "n_train": 591214,
+      "n_test": 394144,
+      "train_users": 1167,
+      "test_users": 919,
+      "train_failure_rate_pct": 19.9285,
+      "test_failure_rate_pct": 34.2126,
+      "train_top_user_share_pct": 18.9376,
+      "test_top_user_share_pct": 43.3565,
+      "train_top_user_failure_rate_pct": 19.6263,
+      "test_top_user_failure_rate_pct": 59.9045,
+      "train_others_failure_rate_pct": 19.9991,
+      "test_others_failure_rate_pct": 14.5474,
+      "logreg": {
+        "auc_all": 0.764694,
+        "auc_top_user_only": 0.737942,
+        "auc_without_top_user": 0.563712,
+        "auc_top_user_removed_from_both_sides": 0.539407
+      },
+      "gbm": {
+        "auc_all": 0.422912,
+        "auc_top_user_only": 0.222121,
+        "auc_without_top_user": 0.677362,
+        "auc_top_user_removed_from_both_sides": 0.675203
+      }
+    },
+    {
+      "frac": 0.7,
+      "n_train": 689750,
+      "n_test": 295608,
+      "train_users": 1209,
+      "test_users": 826,
+      "train_failure_rate_pct": 20.0422,
+      "test_failure_rate_pct": 38.7087,
+      "train_top_user_share_pct": 20.7659,
+      "test_top_user_share_pct": 47.2301,
+      "train_top_user_failure_rate_pct": 23.0436,
+      "test_top_user_failure_rate_pct": 65.4202,
+      "train_others_failure_rate_pct": 19.2556,
+      "test_others_failure_rate_pct": 14.8014,
+      "logreg": {
+        "auc_all": 0.80426,
+        "auc_top_user_only": 0.792236,
+        "auc_without_top_user": 0.540805,
+        "auc_top_user_removed_from_both_sides": 0.522139
+      },
+      "gbm": {
+        "auc_all": 0.299187,
+        "auc_top_user_only": 0.16967,
+        "auc_without_top_user": 0.648262,
+        "auc_top_user_removed_from_both_sides": 0.676968
+      }
+    },
+    {
+      "frac": 0.75,
+      "n_train": 739018,
+      "n_test": 246340,
+      "train_users": 1239,
+      "test_users": 746,
+      "train_failure_rate_pct": 19.7513,
+      "test_failure_rate_pct": 43.3145,
+      "train_top_user_share_pct": 21.0298,
+      "test_top_user_share_pct": 51.7313,
+      "train_top_user_failure_rate_pct": 22.3674,
+      "test_top_user_failure_rate_pct": 70.2954,
+      "train_others_failure_rate_pct": 19.0547,
+      "test_others_failure_rate_pct": 14.398,
+      "logreg": {
+        "auc_all": 0.821348,
+        "auc_top_user_only": 0.795886,
+        "auc_without_top_user": 0.533712,
+        "auc_top_user_removed_from_both_sides": 0.515435
+      },
+      "gbm": {
+        "auc_all": 0.281093,
+        "auc_top_user_only": 0.206743,
+        "auc_without_top_user": 0.658691,
+        "auc_top_user_removed_from_both_sides": 0.671394
+      }
+    },
+    {
+      "frac": 0.8,
+      "n_train": 788286,
+      "n_test": 197072,
+      "train_users": 1250,
+      "test_users": 723,
+      "train_failure_rate_pct": 22.8587,
+      "test_failure_rate_pct": 36.7759,
+      "train_top_user_share_pct": 24.1369,
+      "test_top_user_share_pct": 46.9783,
+      "train_top_user_failure_rate_pct": 35.173,
+      "test_top_user_failure_rate_pct": 62.0214,
+      "train_others_failure_rate_pct": 18.9407,
+      "test_others_failure_rate_pct": 14.4079,
+      "logreg": {
+        "auc_all": 0.776647,
+        "auc_top_user_only": 0.768178,
+        "auc_without_top_user": 0.47541,
+        "auc_top_user_removed_from_both_sides": 0.49475
+      },
+      "gbm": {
+        "auc_all": 0.834345,
+        "auc_top_user_only": 0.836486,
+        "auc_without_top_user": 0.656397,
+        "auc_top_user_removed_from_both_sides": 0.67754
+      }
+    },
+    {
+      "frac": 0.9,
+      "n_train": 886822,
+      "n_test": 98536,
+      "train_users": 1265,
+      "test_users": 645,
+      "train_failure_rate_pct": 26.561,
+      "test_failure_rate_pct": 17.3723,
+      "train_top_user_share_pct": 28.4613,
+      "test_top_user_share_pct": 30.9004,
+      "train_top_user_failure_rate_pct": 46.7229,
+      "test_top_user_failure_rate_pct": 21.0654,
+      "train_others_failure_rate_pct": 18.5397,
+      "test_others_failure_rate_pct": 15.7208,
+      "logreg": {
+        "auc_all": 0.518543,
+        "auc_top_user_only": 0.571558,
+        "auc_without_top_user": 0.464225,
+        "auc_top_user_removed_from_both_sides": 0.506081
+      },
+      "gbm": {
+        "auc_all": 0.536611,
+        "auc_top_user_only": 0.318098,
+        "auc_without_top_user": 0.655427,
+        "auc_top_user_removed_from_both_sides": 0.668367
+      }
+    }
+  ],
+  "shape_lookup": {
+    "definition": "score = training-period failure rate of the task's exact request shape; shapes not seen in training get the training base rate",
+    "shapes_in_train": 3596,
+    "shapes_in_test": 1498,
+    "test_tasks_with_shape_seen_in_train_pct": 98.9523,
+    "auc_all": 0.306943,
+    "auc_top_user_only": 0.20799,
+    "auc_without_top_user": 0.676535,
+    "spearman_with_model_test_scores": {
+      "logreg": -0.3726,
+      "gbm": 0.9334
+    }
+  },
+  "shape_summary": {
+    "training_base_rate_pct": 19.7513,
+    "test_base_rate_pct": 43.3145,
+    "groups": [
+      {
+        "group": "shape below training base rate in training, above test base rate in test",
+        "test_tasks": 88438,
+        "test_tasks_pct": 35.9008,
+        "test_failures_pct_of_all_test_failures": 77.0068,
+        "top_user_share_of_group_pct": 98.3751,
+        "test_failure_rate_pct": 92.9092
+      },
+      {
+        "group": "shape above training base rate in training, below test base rate in test",
+        "test_tasks": 42302,
+        "test_tasks_pct": 17.1722,
+        "test_failures_pct_of_all_test_failures": 5.8781,
+        "top_user_share_of_group_pct": 56.6356,
+        "test_failure_rate_pct": 14.8267
+      },
+      {
+        "group": "same side of the base rate in both periods",
+        "test_tasks": 113019,
+        "test_tasks_pct": 45.8793,
+        "test_failures_pct_of_all_test_failures": 16.1685,
+        "top_user_share_of_group_pct": 13.9446,
+        "test_failure_rate_pct": 15.2647
+      },
+      {
+        "group": "shape not seen in training",
+        "test_tasks": 2581,
+        "test_tasks_pct": 1.0477,
+        "test_failures_pct_of_all_test_failures": 0.9466,
+        "top_user_share_of_group_pct": 27.7412,
+        "test_failure_rate_pct": 39.1321
+      }
+    ]
+  },
+  "top_user_by_plan_gpu": [
+    {
+      "plan_gpu": 5.0,
+      "n_train": 7670,
+      "train_failure_rate_pct": 0.3651,
+      "n_test": 5021,
+      "test_failure_rate_pct": 37.9805
+    },
+    {
+      "plan_gpu": 10.0,
+      "n_train": 71167,
+      "train_failure_rate_pct": 26.1441,
+      "n_test": 16646,
+      "test_failure_rate_pct": 15.7816
+    },
+    {
+      "plan_gpu": 15.0,
+      "n_train": 2173,
+      "train_failure_rate_pct": 1.4726,
+      "n_test": 0,
+      "test_failure_rate_pct": null
+    },
+    {
+      "plan_gpu": 20.0,
+      "n_train": 2773,
+      "train_failure_rate_pct": 2.8489,
+      "n_test": 1927,
+      "test_failure_rate_pct": 1.6606
+    },
+    {
+      "plan_gpu": 25.0,
+      "n_train": 13966,
+      "train_failure_rate_pct": 5.6423,
+      "n_test": 84623,
+      "test_failure_rate_pct": 93.6412
+    },
+    {
+      "plan_gpu": 30.0,
+      "n_train": 200,
+      "train_failure_rate_pct": 0.0,
+      "n_test": 0,
+      "test_failure_rate_pct": null
+    },
+    {
+      "plan_gpu": 50.0,
+      "n_train": 22040,
+      "train_failure_rate_pct": 2.0917,
+      "n_test": 3594,
+      "test_failure_rate_pct": 1.5582
+    },
+    {
+      "plan_gpu": 100.0,
+      "n_train": 35424,
+      "train_failure_rate_pct": 41.6864,
+      "n_test": 15624,
+      "test_failure_rate_pct": 36.5911
+    }
+  ],
+  "top_user_by_plan_cpu": [
+    {
+      "plan_cpu": 10.0,
+      "n_train": 2584,
+      "train_failure_rate_pct": 3.0573,
+      "n_test": 139,
+      "test_failure_rate_pct": 7.9137
+    },
+    {
+      "plan_cpu": 20.0,
+      "n_train": 9417,
+      "train_failure_rate_pct": 5.0441,
+      "n_test": 5157,
+      "test_failure_rate_pct": 37.3279
+    },
+    {
+      "plan_cpu": 100.0,
+      "n_train": 10635,
+      "train_failure_rate_pct": 6.5068,
+      "n_test": 83330,
+      "test_failure_rate_pct": 95.0282
+    },
+    {
+      "plan_cpu": 500.0,
+      "n_train": 2044,
+      "train_failure_rate_pct": 1.1742,
+      "n_test": 1819,
+      "test_failure_rate_pct": 0.2749
+    },
+    {
+      "plan_cpu": 600.0,
+      "n_train": 122058,
+      "train_failure_rate_pct": 27.1125,
+      "n_test": 31779,
+      "test_failure_rate_pct": 26.0361
+    },
+    {
+      "plan_cpu": 800.0,
+      "n_train": 0,
+      "train_failure_rate_pct": null,
+      "n_test": 3948,
+      "test_failure_rate_pct": 2.0263
+    },
+    {
+      "plan_cpu": 1200.0,
+      "n_train": 1517,
+      "train_failure_rate_pct": 14.3705,
+      "n_test": 240,
+      "test_failure_rate_pct": 10.4167
+    },
+    {
+      "plan_cpu": 1600.0,
+      "n_train": 2080,
+      "train_failure_rate_pct": 4.6154,
+      "n_test": 0,
+      "test_failure_rate_pct": null
+    },
+    {
+      "plan_cpu": 1800.0,
+      "n_train": 5073,
+      "train_failure_rate_pct": 1.6558,
+      "n_test": 925,
+      "test_failure_rate_pct": 0.4324
+    }
+  ],
+  "largest_test_shape_over_time": {
+    "shape": {
+      "plan_cpu": 100.0,
+      "plan_mem": 29.296875,
+      "plan_gpu": 25.0,
+      "inst_num": 1.0
+    },
+    "bins": "20 equal-count bins of all S3 tasks in time order; bin edges fall on the 75% cut",
+    "tasks_all_periods": 94174,
+    "top_user_tasks_all_periods": 93615,
+    "failed_all_periods": 80349,
+    "top_user_failed_all_periods": 79867,
+    "top_user_quarter_gpu_tasks_all_shapes": 98589,
+    "top_user_tasks_of_this_shape_on_8gpu_machines": 93501,
+    "top_user_failed_of_this_shape_on_8gpu_machines": 79856,
+    "top_user_quarter_gpu_tasks_on_8gpu_machines": 98436,
+    "top_user_quarter_gpu_failed_on_8gpu_machines": 80016,
+    "trace_span_days": 68.94,
+    "rows": [
+      {
+        "bin": 1,
+        "tasks_from_pct": 0.0,
+        "tasks_to_pct": 5.0,
+        "period": "train",
+        "days_from_first_start": [
+          0.0,
+          10.42
+        ],
+        "shape_tasks": 386,
+        "shape_failed": 7,
+        "shape_share_of_bin_pct": 0.7835,
+        "shape_failure_rate_pct": 1.8135,
+        "top_user_share_of_shape_pct": 82.3834
+      },
+      {
+        "bin": 2,
+        "tasks_from_pct": 5.0,
+        "tasks_to_pct": 10.0,
+        "period": "train",
+        "days_from_first_start": [
+          10.42,
+          14.49
+        ],
+        "shape_tasks": 328,
+        "shape_failed": 9,
+        "shape_share_of_bin_pct": 0.6657,
+        "shape_failure_rate_pct": 2.7439,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 3,
+        "tasks_from_pct": 10.0,
+        "tasks_to_pct": 15.0,
+        "period": "train",
+        "days_from_first_start": [
+          14.49,
+          18.45
+        ],
+        "shape_tasks": 519,
+        "shape_failed": 12,
+        "shape_share_of_bin_pct": 1.0534,
+        "shape_failure_rate_pct": 2.3121,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 4,
+        "tasks_from_pct": 15.0,
+        "tasks_to_pct": 20.0,
+        "period": "train",
+        "days_from_first_start": [
+          18.45,
+          22.42
+        ],
+        "shape_tasks": 601,
+        "shape_failed": 18,
+        "shape_share_of_bin_pct": 1.2199,
+        "shape_failure_rate_pct": 2.995,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 5,
+        "tasks_from_pct": 20.0,
+        "tasks_to_pct": 25.0,
+        "period": "train",
+        "days_from_first_start": [
+          22.42,
+          26.62
+        ],
+        "shape_tasks": 527,
+        "shape_failed": 16,
+        "shape_share_of_bin_pct": 1.0697,
+        "shape_failure_rate_pct": 3.0361,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 6,
+        "tasks_from_pct": 25.0,
+        "tasks_to_pct": 30.0,
+        "period": "train",
+        "days_from_first_start": [
+          26.62,
+          30.22
+        ],
+        "shape_tasks": 480,
+        "shape_failed": 18,
+        "shape_share_of_bin_pct": 0.9743,
+        "shape_failure_rate_pct": 3.75,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 7,
+        "tasks_from_pct": 30.0,
+        "tasks_to_pct": 35.0,
+        "period": "train",
+        "days_from_first_start": [
+          30.22,
+          33.15
+        ],
+        "shape_tasks": 253,
+        "shape_failed": 10,
+        "shape_share_of_bin_pct": 0.5135,
+        "shape_failure_rate_pct": 3.9526,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 8,
+        "tasks_from_pct": 35.0,
+        "tasks_to_pct": 40.0,
+        "period": "train",
+        "days_from_first_start": [
+          33.15,
+          35.77
+        ],
+        "shape_tasks": 171,
+        "shape_failed": 10,
+        "shape_share_of_bin_pct": 0.3471,
+        "shape_failure_rate_pct": 5.848,
+        "top_user_share_of_shape_pct": 97.076
+      },
+      {
+        "bin": 9,
+        "tasks_from_pct": 40.0,
+        "tasks_to_pct": 45.0,
+        "period": "train",
+        "days_from_first_start": [
+          35.77,
+          39.83
+        ],
+        "shape_tasks": 408,
+        "shape_failed": 14,
+        "shape_share_of_bin_pct": 0.8281,
+        "shape_failure_rate_pct": 3.4314,
+        "top_user_share_of_shape_pct": 99.5098
+      },
+      {
+        "bin": 10,
+        "tasks_from_pct": 45.0,
+        "tasks_to_pct": 50.0,
+        "period": "train",
+        "days_from_first_start": [
+          39.83,
+          43.28
+        ],
+        "shape_tasks": 440,
+        "shape_failed": 9,
+        "shape_share_of_bin_pct": 0.8931,
+        "shape_failure_rate_pct": 2.0455,
+        "top_user_share_of_shape_pct": 99.7727
+      },
+      {
+        "bin": 11,
+        "tasks_from_pct": 50.0,
+        "tasks_to_pct": 55.0,
+        "period": "train",
+        "days_from_first_start": [
+          43.28,
+          46.96
+        ],
+        "shape_tasks": 1190,
+        "shape_failed": 394,
+        "shape_share_of_bin_pct": 2.4154,
+        "shape_failure_rate_pct": 33.1092,
+        "top_user_share_of_shape_pct": 99.916
+      },
+      {
+        "bin": 12,
+        "tasks_from_pct": 55.0,
+        "tasks_to_pct": 60.0,
+        "period": "train",
+        "days_from_first_start": [
+          46.96,
+          49.82
+        ],
+        "shape_tasks": 555,
+        "shape_failed": 5,
+        "shape_share_of_bin_pct": 1.1265,
+        "shape_failure_rate_pct": 0.9009,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 13,
+        "tasks_from_pct": 60.0,
+        "tasks_to_pct": 65.0,
+        "period": "train",
+        "days_from_first_start": [
+          49.82,
+          52.2
+        ],
+        "shape_tasks": 1716,
+        "shape_failed": 49,
+        "shape_share_of_bin_pct": 3.483,
+        "shape_failure_rate_pct": 2.8555,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 14,
+        "tasks_from_pct": 65.0,
+        "tasks_to_pct": 70.0,
+        "period": "train",
+        "days_from_first_start": [
+          52.2,
+          55.59
+        ],
+        "shape_tasks": 1506,
+        "shape_failed": 14,
+        "shape_share_of_bin_pct": 3.0568,
+        "shape_failure_rate_pct": 0.9296,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 15,
+        "tasks_from_pct": 70.0,
+        "tasks_to_pct": 75.0,
+        "period": "train",
+        "days_from_first_start": [
+          55.59,
+          58.38
+        ],
+        "shape_tasks": 1635,
+        "shape_failed": 117,
+        "shape_share_of_bin_pct": 3.3186,
+        "shape_failure_rate_pct": 7.156,
+        "top_user_share_of_shape_pct": 99.8165
+      },
+      {
+        "bin": 16,
+        "tasks_from_pct": 75.0,
+        "tasks_to_pct": 80.0,
+        "period": "test",
+        "days_from_first_start": [
+          58.38,
+          59.7
+        ],
+        "shape_tasks": 31986,
+        "shape_failed": 31979,
+        "shape_share_of_bin_pct": 64.9225,
+        "shape_failure_rate_pct": 99.9781,
+        "top_user_share_of_shape_pct": 98.5025
+      },
+      {
+        "bin": 17,
+        "tasks_from_pct": 80.0,
+        "tasks_to_pct": 85.0,
+        "period": "test",
+        "days_from_first_start": [
+          59.7,
+          60.32
+        ],
+        "shape_tasks": 40989,
+        "shape_failed": 40890,
+        "shape_share_of_bin_pct": 83.196,
+        "shape_failure_rate_pct": 99.7585,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 18,
+        "tasks_from_pct": 85.0,
+        "tasks_to_pct": 90.0,
+        "period": "test",
+        "days_from_first_start": [
+          60.32,
+          62.87
+        ],
+        "shape_tasks": 8013,
+        "shape_failed": 6701,
+        "shape_share_of_bin_pct": 16.2641,
+        "shape_failure_rate_pct": 83.6266,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 19,
+        "tasks_from_pct": 90.0,
+        "tasks_to_pct": 95.0,
+        "period": "test",
+        "days_from_first_start": [
+          62.87,
+          65.54
+        ],
+        "shape_tasks": 1420,
+        "shape_failed": 39,
+        "shape_share_of_bin_pct": 2.8822,
+        "shape_failure_rate_pct": 2.7465,
+        "top_user_share_of_shape_pct": 100.0
+      },
+      {
+        "bin": 20,
+        "tasks_from_pct": 95.0,
+        "tasks_to_pct": 100.0,
+        "period": "test",
+        "days_from_first_start": [
+          65.54,
+          68.94
+        ],
+        "shape_tasks": 1051,
+        "shape_failed": 38,
+        "shape_share_of_bin_pct": 2.1333,
+        "shape_failure_rate_pct": 3.6156,
+        "top_user_share_of_shape_pct": 100.0
+      }
+    ]
+  },
+  "shape_table": {
+    "file": "time_split_by_request_shape.csv",
+    "rows": 344,
+    "shapes_listed": 343,
+    "shapes_pooled_in_last_row": 3632,
+    "test_tasks_in_listed_shapes_pct": 95.9122,
+    "top": [
+      {
+        "rank_by_test_tasks": 1,
+        "plan_cpu": 100.0,
+        "plan_mem": 29.296875,
+        "plan_gpu": 25.0,
+        "inst_num": 1.0,
+        "shapes_pooled": 1,
+        "n_train": 10715,
+        "train_failure_rate_pct": 6.5516,
+        "n_test": 83459,
+        "test_failure_rate_pct": 95.4325,
+        "test_share_pct": 33.8796,
+        "train_top_user_share_of_shape_pct": 99.2534,
+        "test_top_user_share_of_shape_pct": 99.4261,
+        "n_train_top": 10635,
+        "train_failure_rate_top_pct": 6.5068,
+        "n_test_top": 82980,
+        "test_failure_rate_top_pct": 95.4146,
+        "n_train_others": 80,
+        "train_failure_rate_others_pct": 12.5,
+        "n_test_others": 479,
+        "test_failure_rate_others_pct": 98.5386,
+        "mean_test_score_logreg": 0.2896,
+        "mean_test_score_gbm": 0.0733
+      },
+      {
+        "rank_by_test_tasks": 2,
+        "plan_cpu": 600.0,
+        "plan_mem": 29.296875,
+        "plan_gpu": 100.0,
+        "inst_num": 1.0,
+        "shapes_pooled": 1,
+        "n_train": 209902,
+        "train_failure_rate_pct": 19.2557,
+        "n_test": 50644,
+        "test_failure_rate_pct": 19.7299,
+        "test_share_pct": 20.5586,
+        "train_top_user_share_of_shape_pct": 13.4782,
+        "test_top_user_share_of_shape_pct": 22.4469,
+        "n_train_top": 28291,
+        "train_failure_rate_top_pct": 51.5712,
+        "n_test_top": 11368,
+        "test_failure_rate_top_pct": 50.0,
+        "n_train_others": 181611,
+        "train_failure_rate_others_pct": 14.2216,
+        "n_test_others": 39276,
+        "test_failure_rate_others_pct": 10.9685,
+        "mean_test_score_logreg": 0.1896,
+        "mean_test_score_gbm": 0.193
+      },
+      {
+        "rank_by_test_tasks": 3,
+        "plan_cpu": 600.0,
+        "plan_mem": 29.296875,
+        "plan_gpu": 10.0,
+        "inst_num": 1.0,
+        "shapes_pooled": 1,
+        "n_train": 67860,
+        "train_failure_rate_pct": 28.5057,
+        "n_test": 15288,
+        "test_failure_rate_pct": 17.1834,
+        "test_share_pct": 6.2061,
+        "train_top_user_share_of_shape_pct": 88.634,
+        "test_top_user_share_of_shape_pct": 96.0557,
+        "n_train_top": 60147,
+        "train_failure_rate_top_pct": 29.679,
+        "n_test_top": 14685,
+        "test_failure_rate_top_pct": 16.9697,
+        "n_train_others": 7713,
+        "train_failure_rate_others_pct": 19.3569,
+        "n_test_others": 603,
+        "test_failure_rate_others_pct": 22.3881,
+        "mean_test_score_logreg": 0.2017,
+        "mean_test_score_gbm": 0.2839
+      },
+      {
+        "rank_by_test_tasks": 4,
+        "plan_cpu": 600.0,
+        "plan_mem": 29.296875,
+        "plan_gpu": 25.0,
+        "inst_num": 1.0,
+        "shapes_pooled": 1,
+        "n_train": 75241,
+        "train_failure_rate_pct": 9.1413,
+        "n_test": 14920,
+        "test_failure_rate_pct": 8.6595,
+        "test_share_pct": 6.0567,
+        "train_top_user_share_of_shape_pct": 4.4231,
+        "test_top_user_share_of_shape_pct": 7.5804,
+        "n_train_top": 3328,
+        "train_failure_rate_top_pct": 2.8245,
+        "n_test_top": 1131,
+        "test_failure_rate_top_pct": 3.7135,
+        "n_train_others": 71913,
+        "train_failure_rate_others_pct": 9.4336,
+        "n_test_others": 13789,
+        "test_failure_rate_others_pct": 9.0652,
+        "mean_test_score_logreg": 0.197,
+        "mean_test_score_gbm": 0.0957
+      },
+      {
+        "rank_by_test_tasks": 5,
+        "plan_cpu": 1800.0,
+        "plan_mem": 58.59375,
+        "plan_gpu": 100.0,
+        "inst_num": 1.0,
+        "shapes_pooled": 1,
+        "n_train": 36411,
+        "train_failure_rate_pct": 20.0736,
+        "n_test": 6822,
+        "test_failure_rate_pct": 19.4957,
+        "test_share_pct": 2.7693,
+        "train_top_user_share_of_shape_pct": 13.9326,
+        "test_top_user_share_of_shape_pct": 13.5591,
+        "n_train_top": 5073,
+        "train_failure_rate_top_pct": 1.6558,
+        "n_test_top": 925,
+        "test_failure_rate_top_pct": 0.4324,
+        "n_train_others": 31338,
+        "train_failure_rate_others_pct": 23.0551,
+        "n_test_others": 5897,
+        "test_failure_rate_others_pct": 22.486,
+        "mean_test_score_logreg": 0.2243,
+        "mean_test_score_gbm": 0.2077
+      },
+      {
+        "rank_by_test_tasks": 6,
+        "plan_cpu": 600.0,
+        "plan_mem": 29.296875,
+        "plan_gpu": 50.0,
+        "inst_num": 1.0,
+        "shapes_pooled": 1,
+        "n_train": 53186,
+        "train_failure_rate_pct": 21.0431,
+        "n_test": 6486,
+        "test_failure_rate_pct": 7.3543,
+        "test_share_pct": 2.6329,
+        "train_top_user_share_of_shape_pct": 41.4207,
+        "test_top_user_share_of_shape_pct": 55.4117,
+        "n_train_top": 22030,
+        "train_failure_rate_top_pct": 2.0654,
+        "n_test_top": 3594,
+        "test_failure_rate_top_pct": 1.5582,
+        "n_train_others": 31156,
+        "train_failure_rate_others_pct": 34.4621,
+        "n_test_others": 2892,
+        "test_failure_rate_others_pct": 14.5574,
+        "mean_test_score_logreg": 0.1933,
+        "mean_test_score_gbm": 0.1975
+      },
+      {
+        "rank_by_test_tasks": 7,
+        "plan_cpu": 100.0,
+        "plan_mem": 29.296875,
+        "plan_gpu": 100.0,
+        "inst_num": 1.0,
+        "shapes_pooled": 1,
+        "n_train": 6413,
+        "train_failure_rate_pct": 18.3689,
+        "n_test": 4745,
+        "test_failure_rate_pct": 6.8072,
+        "test_share_pct": 1.9262,
+        "train_top_user_share_of_shape_pct": 0.0,
+        "test_top_user_share_of_shape_pct": 0.0,
+        "n_train_top": 0,
+        "train_failure_rate_top_pct": null,
+        "n_test_top": 0,
+        "test_failure_rate_top_pct": null,
+        "n_train_others": 6413,
+        "train_failure_rate_others_pct": 18.3689,
+        "n_test_others": 4745,
+        "test_failure_rate_others_pct": 6.8072,
+        "mean_test_score_logreg": 0.28,
+        "mean_test_score_gbm": 0.2061
+      },
+      {
+        "rank_by_test_tasks": 8,
+        "plan_cpu": 20.0,
+        "plan_mem": 29.296875,
+        "plan_gpu": 5.0,
+        "inst_num": 1.0,
+        "shapes_pooled": 1,
+        "n_train": 2526,
+        "train_failure_rate_pct": 0.8314,
+        "n_test": 4050,
+        "test_failure_rate_pct": 47.7531,
+        "test_share_pct": 1.6441,
+        "train_top_user_share_of_shape_pct": 99.8812,
+        "test_top_user_share_of_shape_pct": 99.284,
+        "n_train_top": 2523,
+        "train_failure_rate_top_pct": 0.8323,
+        "n_test_top": 4021,
+        "test_failure_rate_top_pct": 47.426,
+        "n_train_others": 3,
+        "train_failure_rate_others_pct": 0.0,
+        "n_test_others": 29,
+        "test_failure_rate_others_pct": 93.1034,
+        "mean_test_score_logreg": 0.4015,
+        "mean_test_score_gbm": 0.0135
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "generated_utc": "2026-11-17T15:41:18Z",
+  "definition": "Task-level funnel. Join keys: task->job on job_name (gives user); task->instance on (job_name, task_name); first instance = earliest start_time, ties by worker_name; instance->machine_spec on machine; instance->sensor and ->machine_metric on worker_name.",
+  "label": "Failed = 1, Terminated = 0 (trace README: only 'Terminated' tasks are successful). Running and Waiting are unresolved and excluded from S2 on.",
+  "stages": [
+    {
+      "stage": "S0 all task rows",
+      "condition_sql": "TRUE",
+      "tasks": 1261050,
+      "failed": 256762,
+      "failed_pct": 20.361,
+      "distinct_users": 1433,
+      "pct_of_S3": 127.9789
+    },
+    {
+      "stage": "S1 job found (user known)",
+      "condition_sql": "user IS NOT NULL",
+      "tasks": 1261050,
+      "failed": 256762,
+      "failed_pct": 20.361,
+      "distinct_users": 1433,
+      "pct_of_S3": 127.9789
+    },
+    {
+      "stage": "S2 resolved: status Failed or Terminated",
+      "condition_sql": "user IS NOT NULL AND status IN ('Failed','Terminated')",
+      "tasks": 1141835,
+      "failed": 256762,
+      "failed_pct": 22.4868,
+      "distinct_users": 1399,
+      "pct_of_S3": 115.8802
+    },
+    {
+      "stage": "S3 GPU requested: plan_gpu > 0",
+      "condition_sql": "user IS NOT NULL AND status IN ('Failed','Terminated') AND plan_gpu > 0",
+      "tasks": 985358,
+      "failed": 252667,
+      "failed_pct": 25.6422,
+      "distinct_users": 1314,
+      "pct_of_S3": 100.0
+    },
+    {
+      "stage": "S4 has >=1 instance row",
+      "condition_sql": "user IS NOT NULL AND status IN ('Failed','Terminated') AND plan_gpu > 0 AND fi_worker IS NOT NULL",
+      "tasks": 985358,
+      "failed": 252667,
+      "failed_pct": 25.6422,
+      "distinct_users": 1314,
+      "pct_of_S3": 100.0
+    },
+    {
+      "stage": "S5 first instance has a machine",
+      "condition_sql": "user IS NOT NULL AND status IN ('Failed','Terminated') AND plan_gpu > 0 AND fi_machine IS NOT NULL",
+      "tasks": 985358,
+      "failed": 252667,
+      "failed_pct": 25.6422,
+      "distinct_users": 1314,
+      "pct_of_S3": 100.0
+    },
+    {
+      "stage": "S6 machine in pai_machine_spec",
+      "condition_sql": "user IS NOT NULL AND status IN ('Failed','Terminated') AND plan_gpu > 0 AND fi_machine IS NOT NULL AND in_spec",
+      "tasks": 985358,
+      "failed": 252667,
+      "failed_pct": 25.6422,
+      "distinct_users": 1314,
+      "pct_of_S3": 100.0
+    },
+    {
+      "stage": "S7 first instance has sensor rows",
+      "condition_sql": "user IS NOT NULL AND status IN ('Failed','Terminated') AND plan_gpu > 0 AND fi_machine IS NOT NULL AND in_spec AND has_sensor",
+      "tasks": 776942,
+      "failed": 216693,
+      "failed_pct": 27.8905,
+      "distinct_users": 1222,
+      "pct_of_S3": 78.8487
+    },
+    {
+      "stage": "S8 first instance has machine-metric rows",
+      "condition_sql": "user IS NOT NULL AND status IN ('Failed','Terminated') AND plan_gpu > 0 AND fi_machine IS NOT NULL AND in_spec AND has_sensor AND has_metric",
+      "tasks": 559392,
+      "failed": 1346,
+      "failed_pct": 0.2406,
+      "distinct_users": 1141,
+      "pct_of_S3": 56.7704
+    }
+  ],
+  "kanvas_tasks_for_scale": 18890,
+  "kanvas_pct_of_S3": 1.9171,
+  "kanvas_note": "KANVAS's own filter is not reproduced here; the comparison is scale only.",
+  "user_concentration_on_S3": {
+    "users": 1314,
+    "top_user_by_tasks": {
+      "task_share_pct": 28.7052,
+      "failure_share_pct": 49.2122
+    },
+    "top5_users_by_tasks_task_share_pct": 47.263,
+    "top_user_by_failures_failure_share_pct": 49.2122,
+    "top_user_by_tasks_is_top_by_failures": true
+  },
+  "gpu_type_mix_on_S3": {
+    "MISC": 662984,
+    "T4": 217704,
+    "P100": 64754,
+    "V100": 24703,
+    "V100M32": 15212,
+    "<NULL>": 1
+  },
+  "gpu_type_MISC_pct_on_S3": 67.2836
+}

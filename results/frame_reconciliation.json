@@ -1,0 +1,99 @@
+{
+  "generated_utc": "2026-11-17T20:20:29Z",
+  "duckdb_version": "2.0.0",
+  "join_keys": "default: instance on (job_name, task_name)",
+  "slice_fraction": 1.0,
+  "frame_rows": 1261050,
+  "frame_columns": [
+    "job_name",
+    "task_name",
+    "user",
+    "status",
+    "label",
+    "start_time",
+    "inst_num",
+    "plan_cpu",
+    "plan_mem",
+    "plan_gpu",
+    "gpu_type",
+    "fi_worker",
+    "fi_machine",
+    "fi_start_time",
+    "spec_gpu_type",
+    "cap_cpu",
+    "cap_mem",
+    "cap_gpu",
+    "in_spec",
+    "has_sensor",
+    "has_metric",
+    "in_s3",
+    "kanvas_window_rows",
+    "kanvas_cmp"
+  ],
+  "stages_from_parquet": [
+    {
+      "stage": "S0 all task rows",
+      "tasks": 1261050,
+      "failed": 256762,
+      "distinct_users": 1433
+    },
+    {
+      "stage": "S1 job found (user known)",
+      "tasks": 1261050,
+      "failed": 256762,
+      "distinct_users": 1433
+    },
+    {
+      "stage": "S2 resolved: status Failed or Terminated",
+      "tasks": 1141835,
+      "failed": 256762,
+      "distinct_users": 1399
+    },
+    {
+      "stage": "S3 GPU requested: plan_gpu > 0",
+      "tasks": 985358,
+      "failed": 252667,
+      "distinct_users": 1314
+    },
+    {
+      "stage": "S4 has >=1 instance row",
+      "tasks": 985358,
+      "failed": 252667,
+      "distinct_users": 1314
+    },
+    {
+      "stage": "S5 first instance has a machine",
+      "tasks": 985358,
+      "failed": 252667,
+      "distinct_users": 1314
+    },
+    {
+      "stage": "S6 machine in pai_machine_spec",
+      "tasks": 985358,
+      "failed": 252667,
+      "distinct_users": 1314
+    },
+    {
+      "stage": "S7 first instance has sensor rows",
+      "tasks": 776942,
+      "failed": 216693,
+      "distinct_users": 1222
+    },
+    {
+      "stage": "S8 first instance has machine-metric rows",
+      "tasks": 559392,
+      "failed": 1346,
+      "distinct_users": 1141
+    }
+  ],
+  "kanvas_comparable": {
+    "tasks": 539630,
+    "failed": 147869,
+    "distinct_users": 1157,
+    "definition": "KANVAS filter without its stratified sample; see paigpu/convert.py"
+  },
+  "reconciliation_vs_funnel_json": {
+    "all_match": true,
+    "differences": []
+  }
+}

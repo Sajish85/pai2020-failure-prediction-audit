@@ -1,0 +1,762 @@
+{
+  "generated_utc": "2026-11-17T15:41:18Z",
+  "duckdb_version": "2.0.0",
+  "tables": {
+    "pai_job_table": {
+      "rows": 1055501,
+      "header_columns": [
+        "job_name",
+        "inst_id",
+        "user",
+        "status",
+        "start_time",
+        "end_time"
+      ],
+      "columns": [
+        {
+          "name": "job_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "inst_id",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "user",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "start_time",
+          "type": "DOUBLE",
+          "nulls": 3663,
+          "null_pct": 0.347
+        },
+        {
+          "name": "end_time",
+          "type": "DOUBLE",
+          "nulls": 296420,
+          "null_pct": 28.0833
+        }
+      ]
+    },
+    "pai_task_table": {
+      "rows": 1261050,
+      "header_columns": [
+        "job_name",
+        "task_name",
+        "inst_num",
+        "status",
+        "start_time",
+        "end_time",
+        "plan_cpu",
+        "plan_mem",
+        "plan_gpu",
+        "gpu_type"
+      ],
+      "columns": [
+        {
+          "name": "job_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "task_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "inst_num",
+          "type": "DOUBLE",
+          "nulls": 130,
+          "null_pct": 0.0103
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "start_time",
+          "type": "DOUBLE",
+          "nulls": 3714,
+          "null_pct": 0.2945
+        },
+        {
+          "name": "end_time",
+          "type": "DOUBLE",
+          "nulls": 349561,
+          "null_pct": 27.7198
+        },
+        {
+          "name": "plan_cpu",
+          "type": "DOUBLE",
+          "nulls": 18454,
+          "null_pct": 1.4634
+        },
+        {
+          "name": "plan_mem",
+          "type": "DOUBLE",
+          "nulls": 18454,
+          "null_pct": 1.4634
+        },
+        {
+          "name": "plan_gpu",
+          "type": "DOUBLE",
+          "nulls": 223965,
+          "null_pct": 17.7602
+        },
+        {
+          "name": "gpu_type",
+          "type": "VARCHAR",
+          "nulls": 217738,
+          "null_pct": 17.2664
+        }
+      ]
+    },
+    "pai_instance_table": {
+      "rows": 7522002,
+      "header_columns": [
+        "job_name",
+        "task_name",
+        "inst_name",
+        "worker_name",
+        "inst_id",
+        "status",
+        "start_time",
+        "end_time",
+        "machine"
+      ],
+      "columns": [
+        {
+          "name": "job_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "task_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "inst_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "worker_name",
+          "type": "VARCHAR",
+          "nulls": 331057,
+          "null_pct": 4.4012
+        },
+        {
+          "name": "inst_id",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "start_time",
+          "type": "DOUBLE",
+          "nulls": 1773468,
+          "null_pct": 23.5771
+        },
+        {
+          "name": "end_time",
+          "type": "DOUBLE",
+          "nulls": 2267582,
+          "null_pct": 30.146
+        },
+        {
+          "name": "machine",
+          "type": "VARCHAR",
+          "nulls": 331057,
+          "null_pct": 4.4012
+        }
+      ]
+    },
+    "pai_sensor_table": {
+      "rows": 3033232,
+      "header_columns": [
+        "job_name",
+        "task_name",
+        "worker_name",
+        "inst_id",
+        "machine",
+        "gpu_name",
+        "cpu_usage",
+        "gpu_wrk_util",
+        "avg_mem",
+        "max_mem",
+        "avg_gpu_wrk_mem",
+        "max_gpu_wrk_mem",
+        "read",
+        "write",
+        "read_count",
+        "write_count"
+      ],
+      "columns": [
+        {
+          "name": "job_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "task_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "worker_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "inst_id",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "machine",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "gpu_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "cpu_usage",
+          "type": "DOUBLE",
+          "nulls": 5829,
+          "null_pct": 0.1922
+        },
+        {
+          "name": "gpu_wrk_util",
+          "type": "DOUBLE",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "avg_mem",
+          "type": "DOUBLE",
+          "nulls": 1217,
+          "null_pct": 0.0401
+        },
+        {
+          "name": "max_mem",
+          "type": "DOUBLE",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "avg_gpu_wrk_mem",
+          "type": "DOUBLE",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "max_gpu_wrk_mem",
+          "type": "DOUBLE",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "read",
+          "type": "DOUBLE",
+          "nulls": 3,
+          "null_pct": 0.0001
+        },
+        {
+          "name": "write",
+          "type": "DOUBLE",
+          "nulls": 3,
+          "null_pct": 0.0001
+        },
+        {
+          "name": "read_count",
+          "type": "DOUBLE",
+          "nulls": 3,
+          "null_pct": 0.0001
+        },
+        {
+          "name": "write_count",
+          "type": "DOUBLE",
+          "nulls": 3,
+          "null_pct": 0.0001
+        }
+      ]
+    },
+    "pai_group_tag_table": {
+      "rows": 1055032,
+      "header_columns": [
+        "inst_id",
+        "user",
+        "gpu_type_spec",
+        "group",
+        "workload"
+      ],
+      "columns": [
+        {
+          "name": "inst_id",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "user",
+          "type": "VARCHAR",
+          "nulls": 1,
+          "null_pct": 0.0001
+        },
+        {
+          "name": "gpu_type_spec",
+          "type": "VARCHAR",
+          "nulls": 1034399,
+          "null_pct": 98.0443
+        },
+        {
+          "name": "group",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "workload",
+          "type": "VARCHAR",
+          "nulls": 952234,
+          "null_pct": 90.2564
+        }
+      ]
+    },
+    "pai_machine_spec": {
+      "rows": 1897,
+      "header_columns": [
+        "machine",
+        "gpu_type",
+        "cap_cpu",
+        "cap_mem",
+        "cap_gpu"
+      ],
+      "columns": [
+        {
+          "name": "machine",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "gpu_type",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "cap_cpu",
+          "type": "BIGINT",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "cap_mem",
+          "type": "BIGINT",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "cap_gpu",
+          "type": "BIGINT",
+          "nulls": 0,
+          "null_pct": 0.0
+        }
+      ]
+    },
+    "pai_machine_metric": {
+      "rows": 2009423,
+      "header_columns": [
+        "worker_name",
+        "machine",
+        "start_time",
+        "end_time",
+        "machine_cpu_iowait",
+        "machine_cpu_kernel",
+        "machine_cpu_usr",
+        "machine_gpu",
+        "machine_load_1",
+        "machine_net_receive",
+        "machine_num_worker",
+        "machine_cpu"
+      ],
+      "columns": [
+        {
+          "name": "worker_name",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "machine",
+          "type": "VARCHAR",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "start_time",
+          "type": "BIGINT",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "end_time",
+          "type": "BIGINT",
+          "nulls": 0,
+          "null_pct": 0.0
+        },
+        {
+          "name": "machine_cpu_iowait",
+          "type": "DOUBLE",
+          "nulls": 1090518,
+          "null_pct": 54.2702
+        },
+        {
+          "name": "machine_cpu_kernel",
+          "type": "DOUBLE",
+          "nulls": 280688,
+          "null_pct": 13.9686
+        },
+        {
+          "name": "machine_cpu_usr",
+          "type": "DOUBLE",
+          "nulls": 232095,
+          "null_pct": 11.5503
+        },
+        {
+          "name": "machine_gpu",
+          "type": "DOUBLE",
+          "nulls": 241494,
+          "null_pct": 12.0181
+        },
+        {
+          "name": "machine_load_1",
+          "type": "DOUBLE",
+          "nulls": 268544,
+          "null_pct": 13.3642
+        },
+        {
+          "name": "machine_net_receive",
+          "type": "DOUBLE",
+          "nulls": 218148,
+          "null_pct": 10.8563
+        },
+        {
+          "name": "machine_num_worker",
+          "type": "DOUBLE",
+          "nulls": 295258,
+          "null_pct": 14.6937
+        },
+        {
+          "name": "machine_cpu",
+          "type": "DOUBLE",
+          "nulls": 1125895,
+          "null_pct": 56.0308
+        }
+      ]
+    }
+  },
+  "status_values": {
+    "pai_job_table": {
+      "Terminated": 732355,
+      "Failed": 256555,
+      "Running": 62928,
+      "Waiting": 3663
+    },
+    "pai_task_table": {
+      "Terminated": 885073,
+      "Failed": 256762,
+      "Running": 115501,
+      "Waiting": 3714
+    },
+    "pai_instance_table": {
+      "Terminated": 4757371,
+      "Failed": 969975,
+      "Running": 809664,
+      "Interrupted": 654022,
+      "Waiting": 323840,
+      "Ready": 7130
+    }
+  },
+  "key_integrity": {
+    "job_rows": 1055501,
+    "job_distinct_job_name": 1055501,
+    "job_distinct_inst_id": 1055501,
+    "job_names_with_gt1_inst_id": 0,
+    "task_rows": 1261050,
+    "task_distinct_job_task": 1261050,
+    "task_rows_job_not_in_job_table": 0,
+    "jobs_without_task": 0,
+    "instance_rows": 7522002,
+    "instance_rows_task_not_in_task_table": 0,
+    "instance_distinct_worker_name": 7164358,
+    "instance_rows_null_machine": 331057,
+    "instance_machines_not_in_spec": 0,
+    "machine_spec_rows": 1897,
+    "machine_spec_distinct_machine": 1897,
+    "sensor_distinct_worker_name": 3033232,
+    "metric_distinct_worker_name": 2009421,
+    "group_tag_distinct_inst_id": 1055032,
+    "group_tag_user_mismatch_vs_job": 0
+  },
+  "time_ranges_seconds": {
+    "pai_job_table": {
+      "start_time_min": 494319.0,
+      "start_time_max": 6451081.0,
+      "span_days": 68.94
+    },
+    "pai_task_table": {
+      "start_time_min": 494319.0,
+      "start_time_max": 6451081.0,
+      "span_days": 68.94
+    },
+    "pai_instance_table": {
+      "start_time_min": 494366.0,
+      "start_time_max": 6451090.0,
+      "span_days": 68.94
+    }
+  },
+  "end_time_missing": {
+    "pai_job_table": {
+      "Terminated": {
+        "n": 732355,
+        "end_time_null": 0,
+        "end_time_null_pct": 0.0,
+        "start_time_null": 0
+      },
+      "Failed": {
+        "n": 256555,
+        "end_time_null": 230935,
+        "end_time_null_pct": 90.0138,
+        "start_time_null": 0
+      },
+      "Running": {
+        "n": 62928,
+        "end_time_null": 61867,
+        "end_time_null_pct": 98.3139,
+        "start_time_null": 0
+      },
+      "Waiting": {
+        "n": 3663,
+        "end_time_null": 3618,
+        "end_time_null_pct": 98.7715,
+        "start_time_null": 3663
+      },
+      "_all": {
+        "n": 1055501,
+        "end_time_null": 296420,
+        "end_time_null_pct": 28.0833
+      }
+    },
+    "pai_task_table": {
+      "Terminated": {
+        "n": 885073,
+        "end_time_null": 0,
+        "end_time_null_pct": 0.0,
+        "start_time_null": 0
+      },
+      "Failed": {
+        "n": 256762,
+        "end_time_null": 255522,
+        "end_time_null_pct": 99.5171,
+        "start_time_null": 0
+      },
+      "Running": {
+        "n": 115501,
+        "end_time_null": 90325,
+        "end_time_null_pct": 78.2028,
+        "start_time_null": 0
+      },
+      "Waiting": {
+        "n": 3714,
+        "end_time_null": 3714,
+        "end_time_null_pct": 100.0,
+        "start_time_null": 3714
+      },
+      "_all": {
+        "n": 1261050,
+        "end_time_null": 349561,
+        "end_time_null_pct": 27.7198
+      }
+    },
+    "pai_instance_table": {
+      "Terminated": {
+        "n": 4757371,
+        "end_time_null": 11,
+        "end_time_null_pct": 0.0002,
+        "start_time_null": 0
+      },
+      "Failed": {
+        "n": 969975,
+        "end_time_null": 888444,
+        "end_time_null_pct": 91.5945,
+        "start_time_null": 97316
+      },
+      "Running": {
+        "n": 809664,
+        "end_time_null": 809664,
+        "end_time_null_pct": 100.0,
+        "start_time_null": 691160
+      },
+      "Interrupted": {
+        "n": 654022,
+        "end_time_null": 238493,
+        "end_time_null_pct": 36.4656,
+        "start_time_null": 654022
+      },
+      "Waiting": {
+        "n": 323840,
+        "end_time_null": 323840,
+        "end_time_null_pct": 100.0,
+        "start_time_null": 323840
+      },
+      "Ready": {
+        "n": 7130,
+        "end_time_null": 7130,
+        "end_time_null_pct": 100.0,
+        "start_time_null": 7130
+      },
+      "_all": {
+        "n": 7522002,
+        "end_time_null": 2267582,
+        "end_time_null_pct": 30.146
+      }
+    },
+    "resolved_gpu_tasks": {
+      "Terminated": {
+        "n": 732691,
+        "end_time_null": 0,
+        "end_time_null_pct": 0.0
+      },
+      "Failed": {
+        "n": 252667,
+        "end_time_null": 252017,
+        "end_time_null_pct": 99.7427
+      },
+      "_share_of_missing_that_is_Failed": 100.0
+    }
+  },
+  "task_vs_instance_status": {
+    "Failed": {
+      "n": 256762,
+      "no_instances": 0,
+      "any_instance_failed": 256762,
+      "no_instance_failed": 0
+    },
+    "Terminated": {
+      "n": 885073,
+      "no_instances": 0,
+      "any_instance_failed": 33112,
+      "no_instance_failed": 851961
+    }
+  },
+  "single_task_job_status_vs_task_status": [
+    {
+      "job_status": "Terminated",
+      "task_status": "Terminated",
+      "n": 595549
+    },
+    {
+      "job_status": "Failed",
+      "task_status": "Failed",
+      "n": 231900
+    },
+    {
+      "job_status": "Running",
+      "task_status": "Running",
+      "n": 39081
+    },
+    {
+      "job_status": "Waiting",
+      "task_status": "Waiting",
+      "n": 543
+    }
+  ],
+  "telemetry_coverage_by_status_on_S6": {
+    "has_sensor": {
+      "Failed": {
+        "n": 252667,
+        "with": 216693,
+        "with_pct": 85.7623
+      },
+      "Terminated": {
+        "n": 732691,
+        "with": 560249,
+        "with_pct": 76.4646
+      }
+    },
+    "has_metric": {
+      "Failed": {
+        "n": 252667,
+        "with": 1346,
+        "with_pct": 0.5327
+      },
+      "Terminated": {
+        "n": 732691,
+        "with": 558046,
+        "with_pct": 76.1639
+      }
+    }
+  },
+  "machine_metric_duplicate_worker_rows": 2,
+  "instance_metric_coverage_by_status": {
+    "Terminated": {
+      "n": 4757371,
+      "with_metric": 2016262,
+      "with_pct": 42.3819
+    },
+    "Failed": {
+      "n": 969888,
+      "with_metric": 904,
+      "with_pct": 0.0932
+    },
+    "Running": {
+      "n": 809664,
+      "with_metric": 178,
+      "with_pct": 0.022
+    },
+    "Interrupted": {
+      "n": 654022,
+      "with_metric": 34,
+      "with_pct": 0.0052
+    }
+  },
+  "runtime_seconds": 26.4
+}

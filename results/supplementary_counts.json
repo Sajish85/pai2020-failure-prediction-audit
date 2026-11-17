@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "script": "scripts/supplementary_counts.py",
+    "frame": "tasks_frame.parquet",
+    "n_S3": 985358,
+    "time_frac": 0.75,
+    "n_bins": 20,
+    "burst_bins": [
+      16,
+      17,
+      18
+    ],
+    "shape": {
+      "plan_cpu": 100.0,
+      "plan_mem": 29.296875,
+      "plan_gpu": 25.0,
+      "inst_num": 1.0
+    }
+  },
+  "concentration_top_1pct": {
+    "users": 1314,
+    "users_in_top_1pct": 14,
+    "largest_by_task_count": {
+      "share_of_tasks_pct": 62.9824,
+      "share_of_failures_pct": 68.3041
+    },
+    "most_failures": {
+      "share_of_failures_pct": 70.0907,
+      "users_also_in_largest_by_task_count": 7
+    }
+  },
+  "burst": {
+    "test_tasks": 246340,
+    "test_failed": 106701,
+    "tasks": 80988,
+    "failed": 79570,
+    "share_of_test_tasks_pct": 32.8765,
+    "share_of_test_failures_pct": 74.5729,
+    "largest_user": {
+      "tasks": 80509,
+      "failed": 79098,
+      "share_of_burst_tasks_pct": 99.4086
+    },
+    "other_users": {
+      "users": 1,
+      "tasks": 479,
+      "failed": 472,
+      "failure_rate_pct": 98.5386,
+      "bins_with_tasks": [
+        16
+      ],
+      "largest_single_other_user": {
+        "tasks": 479,
+        "failed": 472
+      }
+    }
+  },
+  "test_period_span": {
+    "trace_span_days": 68.94,
+    "test_starts_at_day": 58.38,
+    "test_share_of_tasks_pct": 25.0001,
+    "test_share_of_time_span_pct": 15.3237
+  }
+}

@@ -47,3 +47,17 @@ The trace is Alibaba's cluster-trace-gpu-v2020, available from Alibaba: https://
 
 - Code (`paigpu/`, `scripts/`, `Makefile`): MIT, see [LICENSE](LICENSE).
 - Paper (`paper.md`, `paper.pdf`) and aggregates (`results/`, `figures/`, `audit_results.json`, `funnel.json`, `leakage-table.md`): CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/.
+
+## How to cite
+
+```bibtex
+@misc{krishnan2026oneuser,
+  author       = {Krishnan, Sajish},
+  title        = {One User Dominates: An Audit and User-Grouped Re-check of Task-Failure Prediction on the Alibaba {PAI} {GPU} Trace},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.24326622},
+  url          = {https://github.com/Sajish85/pai2020-failure-prediction-audit},
+  note         = {ORCID: 0009-0009-7561-9290. Paper licence: CC BY 4.0; code: MIT}
+}
+```

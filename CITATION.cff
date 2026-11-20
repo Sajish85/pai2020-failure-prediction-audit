@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+authors:
+  - family-names: "Krishnan"
+    given-names: "Sajish"
+    orcid: "https://orcid.org/0009-0009-7561-9290"
+    affiliation: "Independent researcher"
+title: "One User Dominates: An Audit and User-Grouped Re-check of Task-Failure Prediction on the Alibaba PAI GPU Trace"
+date-released: 2026-11-17
+year: 2026
+doi: "10.5281/zenodo.24326622"
+url: "https://github.com/Sajish85/pai2020-failure-prediction-audit"
+license: CC-BY-4.0
